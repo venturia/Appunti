@@ -8,7 +8,8 @@
 \usepackage{graphicx}
 \usepackage{gitinfo}
 \begin{document}
-\gitHash
+Commit date: \gitCommitterIsoDate\\
+git references: \gitReferences
 \section{LHC luminosity}
 %
 \subsection{LHC parameters}
@@ -38,11 +39,40 @@ As a consequence the product $n_1n_2$ can be expressed as:
 n_1n_2&=&\frac{N^2_{p_{bunch}}}{(2\pi)^3\sigma_x^2\sigma_y^2\sigma_z^2}\exp\left({-\frac{x^2\cos^2\alpha}{2(\sigma_x/\sqrt{2})^2}}\right)
 \exp\left({-\frac{y^2}{2(\sigma_y/\sqrt{2})^2}}\right)\cr
 &&\exp\left({-\frac{z^2\cos^2\alpha}{2(\sigma_z/\sqrt{2})^2}\left(1+\frac{\sigma^2_z}{\sigma^2_x}\tan^2\alpha\right)}\right)
-\exp\left({-\frac{c^2(x\sin\alpha/c-t)^2}{2(\sigma_z/\sqrt{2})^2}}\right)\\
+\exp\left({-\frac{c^2(x\sin\alpha/c-t)^2}{2(\sigma_z/\sqrt{2})^2}}\right)\label{n1n2_1}\\
 &=&\frac{N^2_{p_{bunch}}}{(2\pi)^3\sigma_x^2\sigma_y^2\sigma_z^2}\exp\left({-\left(x-\frac{ct(\sigma^2_x/\sigma^2_z)\sin\alpha}{\cos^2\alpha+(\sigma^2_x/\sigma^2_z)\sin^2\alpha}\right)^2\frac{\cos^2\alpha}{2(\sigma_x/\sqrt{2})^2}\left(1+\frac{\sigma^2_x}{\sigma^2_z}\tan^2\alpha\right)}\right)\cr
 &&\exp\left({-\frac{y^2}{2(\sigma_y/\sqrt{2})^2}}\right)\exp\left({-\frac{z^2\cos^2\alpha}{2(\sigma_z/\sqrt{2})^2}\left(1+\frac{\sigma^2_z}{\sigma^2_x}\tan^2\alpha\right)}\right)\cr
+&&\exp\left({-\frac{c^2t^2}{2(\sigma_z/\sqrt{2})^2\left(1+\frac{\sigma^2_x}{\sigma^2_z}\tan^2\alpha\right)}}\right)\label{n1n2_2}
+\end{eqnarray}
+When the product $n_1n_2$ is integrated over the time (using (\ref{n1n2_1}))  the resulting luminous region p.d.f. is the 3d gaussian distribution below:
+\begin{eqnarray}
+\int n_1n_2\,dt&=&\frac{N^2_{p_{bunch}}}{(2\pi)^3\sigma_x^2\sigma_y^2\sigma_z}\frac{\sqrt{\pi}}{c}\exp\left({-\frac{x^2\cos^2\alpha}{2(\sigma_x/\sqrt{2})^2}}\right)
+\exp\left({-\frac{y^2}{2(\sigma_y/\sqrt{2})^2}}\right)\cr
+&&\exp\left({-\frac{z^2\cos^2\alpha}{2(\sigma_z/\sqrt{2})^2}\left(1+\frac{\sigma^2_z}{\sigma^2_x}\tan^2\alpha\right)}\right)
+\end{eqnarray}
+with the RMS along $x$, $y$ and $z$ given by:
+\begin{equation}
+\left(\frac{\sigma_x}{\sqrt{2}\cos\alpha},\frac{\sigma_y}{\sqrt{2}},\frac{\sigma_z}{\sqrt{2}\cos\alpha\sqrt{1+(\sigma^2_z/\sigma^2_x)\tan^2\alpha}}\right)
+\end{equation}
+Due to the large value of the ratio $\sigma_z/\sigma_x$ ($\simeq 8\cdot 10^3$ for $\sigma_z=8\,{\rm cm}$ and $\sigma_x=10\,{\rm \mu m}$) the length of the luminosur region along $z$ is reduced sizeably if the crossing angle is not null. For $\alpha=150\,{\rm \mu rad}$ the scale factor is about  0.64 .\\
+When the product $n_1n_2$ is integrated over the 3d space (using (\ref{n1n2_2})) the resulting p.d.f. of the collision time is given by the gaussian distribution below:
+\begin{eqnarray}
+\int n_1n_2\,dV &=&\frac{N^2_{p_{bunch}}}{8\pi^{3/2}\sigma_x\sigma_y\sigma_z\cos^2\alpha\sqrt{(1+(\sigma^2_z/\sigma^2_x)\tan^2\alpha)(1+(\sigma_x^2/\sigma_z^2)\tan^2\alpha)}}\cr
 &&\exp\left({-\frac{c^2t^2}{2(\sigma_z/\sqrt{2})^2\left(1+\frac{\sigma^2_x}{\sigma^2_z}\tan^2\alpha\right)}}\right)
 \end{eqnarray}
+and the collisions are distributed in time with an RMS given by:
+\begin{equation}
+\sigma_t = \frac{\sigma_z}{\sqrt{2}c}\sqrt{1+\frac{\sigma^2_x}{\sigma^2_z}\tan^2\alpha} \simeq 189\,{\rm ps}
+\end{equation}
+with $\sigma_z=8\,{\rm cm}$ and almost independent from the crossing angle because of the small value of $\sigma_x/\sigma_z \simeq 1.25\cdot 10^{-4}$. \\
+During the collision the center of the luminous region moves along $x$ according to:
+\begin{equation}
+x_{\rm MPV} = ct\frac{(\sigma_x^2/\sigma_z^2)\sin\alpha}{\cos^2\alpha+(\sigma_x^2/\sigma_z^2)\sin^2\alpha}
+\end{equation}
+and the typical displacement in $\pm\sigma_t$ is given by:
+\begin{equation}
+\pm\frac{\sigma_x}{\sqrt{2}\cos\alpha}\frac{(\sigma_x/\sigma_y)\tan\alpha}{\sqrt{1+\frac{\sigma^2_x}{\sigma^2_z}\tan^2\alpha}}\simeq\frac{10^{-3}\,{\rm cm}}{\sqrt{2}}\cdot1.875\cdot 10^{-8} \simeq 1.3\cdot 10^{-11}\,{\rm cm} = 0.13\,{\rm pm}
+\end{equation}
 %
 \subsection{Luminosity formula and reference value(s)}
 LHC, and in general any collider with bunched beams luminosity, luminosity of heads-on collisions depends on the beam parameters according to the formulas below (all equivalent among each others):
