@@ -1,0 +1,741 @@
+\documentstyle[11pt]{article}
+%%
+\newcommand{\fnorm}{f_{y_r}\Sigma^2_{rs}f_{y_s}}
+\newcommand{\mbar}{\overline m}
+\newcommand{\fone}{f^{(1)}}
+\newcommand{\fxes}[1]{f^{(#1)}}
+\newcommand{\fcap}{{\cal F}}
+\newcommand{\fcapies}{{\cal F}^{(i)}}
+\newcommand{\bfp}{{\bf p}}
+\newcommand{\bfx}{{\bf x}}
+\newcommand{\bfxcap}{{\bf X}}
+\newcommand{\bfycap}{{\bf Y}}
+\newcommand{\ycapi}{Y^{(i)}}
+\newcommand{\bfy}{{\bf y}}
+\newcommand{\bfz}{{\bf z}}
+\newcommand{\bfw}{{\bf w}}
+\newcommand{\Minv}{{\cal M}^{-1}}
+\newcommand{\Obs}{{\cal O}}
+%
+%\newcommand{\ell}{{\cal l}}
+\newcommand{\Stwo}{\Sigma^2}
+\newcommand{\de}{\Delta E}
+\newcommand{\db}{\Delta\beta}
+\newcommand{\ptrad}[1]{{p^{(\theta)}_{t#1}}}
+\newcommand{\ptaz}[1]{{p^{(\phi)}_{t#1}}}
+\newcommand{\dinvpt}{\Delta(1/p_{\ell t})}
+\newcommand{\dtl}{\Delta\tan\lambda_\ell}
+\newcommand{\dphi}{\Delta\phi_\ell}
+\newcommand{\betanu}{\mbox{\boldmath $\beta$}_\nu}
+\newcommand{\Mhad}{M_{W_h}}
+\newcommand{\Phad}{\bfp_{W_h}}
+\newcommand{\ghad}{\gamma_{W_h}}
+\newcommand{\betahad}{\mbox{\boldmath $\beta$}_{W_h}}
+\newcommand{\betaw}{\mbox{\boldmath $\beta$}_W}
+\newcommand{\betaone}{\mbox{\boldmath $\beta$}_1}
+\newcommand{\betatwo}{\mbox{\boldmath $\beta$}_2}
+\newcommand{\Mlept}{M_{W_\ell}}
+\newcommand{\Elept}{E_{W_\ell}}
+\newcommand{\glept}{\gamma_{W_\ell}}
+\newcommand{\betalept}{\mbox{\boldmath $\beta$}_{W_\ell}}
+%
+\begin{document}
+%
+\section{Densit\`a di probabilit\`a di una funzione di variabili gaussiane}
+\subsection{Introduzione}
+Devo trovare la funzione di della densit\`a di probabilit\`a $g(m)$ della variabile
+aleatoria $m$ funzione di $n$ variabili aleatorie ${\bf x}$ fino al second'ordine:
+\[m=\mbar+{\bf v\cdot x}+ \frac{1}{2}({\bf x}\cdot A{\bf x})=\mbar+\sum_i v_i x_i+\frac{1}{2}\sum_{ij}a_{ij}x_i x_j\]
+dove le variabili ${\bf x}$ sono variabili gaussiane con valor medio nullo e matrice delle varianze $\Stwo$ di elementi $\sigma^2_{ij}$ e matrice inversa$(\Stwo)^{-1}$ di elementi $(\sigma^2)^{-1}_{ij}$. La funzione di densit\`a
+di probabilit\`a \`e:\[f({\bf x})=\frac{1}{\sqrt{(2\pi)^n|\Stwo|}}\exp\left[{-\frac{1}{2}\sum_{ij}x_i(\sigma^2)^{-1}_{ij}x_j}\right]=\frac{1}{\sqrt{(2\pi)^n|\Stwo|}}\exp\left[{-\frac{1}{2}({\bf x}\cdot(\Stwo)^{-1}{\bf x})}\right].\]Il vettore {\bf v} e la matrice
+$A$ di elementi $a_{ij}$ sono rispettivamente il gradiente e l'hessiano della funzione
+di $m$.
+\subsection{Momenti centrati}
+\subsubsection{Valori di aspettazione notevoli}
+Per il calcolo dei momenti centrati della variabile $m$ \`e necessario calcolare
+valori di aspettazione di funzioni di variabili gaussiane del tipo:\[\langle x_{i_1}x_{i_2}\ldots x_{i_k}\rangle=\int x_{i_1}x_{i_2}\ldots x_{i_k} f({\bf x})\,d{\bf x}.\]Innanzitutto si nota che il valore di aspettazione \`e nullo se $k$ \`e dispari
+essendo la funzione $f({\bf x})$ simmetrica nello scambio $x_i\to -x_i$. Inoltre
+definisco:\[I=\int \exp\left[{-\frac{1}{2}\sum_{ij}x_i(\sigma^2)^{-1}_{ij}x_j}\right]\,d{\bf x}=\sqrt{(2\pi)^n|\Stwo|}=\sqrt{\frac{(2\pi)^n}{|(\Stwo)^{-1}|}}\]dove la matrice $(\Stwo)^{-1}$ \`e la matrice simmetrizzata di elementi$(\sigma^2)^{-1}_{ij}$; si pu\`o verificare che:\[\langle x_{i_1}x_{i_2}\ldots x_{i_{2m-1}}x_{i_{2m}}\rangle=\frac{(-1)^m 2^m}{\sqrt{(2\pi)^n|\Stwo|}}\frac{\partial^m I}{\partial(\sigma^2)^{-1}_{i_1 i_2}\ldots\partial(\sigma^2)^{-1}_{i_{2m-1}i_{2m}}}.\]Il valore di aspettazione \`e simmetrico per ogni scambio di indice $i_j\leftrightarrow i_k$ quindi anche l'espressione di destra deve possedere la stessa
+simmetria. Il termine di destra possiede gi\`a a vista  la simmetria per scambi del tipo $i_{2k-1}\leftrightarrow
+i_{2k}$ e per scambi del tipo $(i_{2k-1},i_{2k})\leftrightarrow(i_{2j-1},i_{2j})$ perci\`o si pu\`o riscrivere la relazione precedente simmetrizzando il termine di destra:\[\langle x_{i_1}x_{i_2}\ldots x_{i_{2m-1}}x_{i_{2m}}\rangle=\frac{1}{(2m-1)!!}\frac{(-1)^m 2^m}{\sqrt{(2\pi)^n|\Stwo|}}\sum_{\{k_p\}}\frac{\partial^m I}{\partial(\sigma^2)^{-1}_{i_{k_1} i_{k_2}}\ldots\partial(\sigma^2)^{-1}_{i_{k_{2m-1}}i_{k_{2m}}}}\]dove la somma \`e fatta su tutte le possibili $2m-$tuple $k_p$ tali che le permutazioni degli indici $\{i_{k_p}\}$  non differiscano solo per scambi  $i_{2k-1}\leftrightarrow i_{2k}$ e $(i_{2k-1},i_{2k})\leftrightarrow(i_{2j-1},i_{2j})$. Il numero di queste permutazioni(o $2m-$tuple) \`e $(2m-1)!!$. Per calcolare le derivate di $I$ sono utili le seguenti relazioni:\begin{eqnarray*}&&\frac{\partial}{\partial(\sigma^2)^{-1}_{i_{k_1}i_{k_2}}}\left(\frac{1}{|(\Stwo)^{-1}|^{l/2}}\right)=\nonumber\\&&-\frac{l}{4}\frac{1}{|(\Stwo)^{-1}|^{l/2+1}}\left((-1)^{i_{k_1}+i_{k_2}}|((\Stwo)^{-1})^{i_{k_1}i_{k_2}}|+(-1)^{i_{k_2}+i_{k_1}}|((\Stwo)^{-1})^{i_{k_2}i_{k_1}}|\right)\nonumber\\&=&-\frac{l}{4}\frac{1}{|(\Stwo)^{-1}|^{l/2}}\left(\sigma^2_{i_{k_1}i_{k_2}}+\sigma^2_{i_{k_2}i_{k_1}}\right)=-\frac{l}{2}\frac{\sigma^2_{i_{k_1}i_{k_2}}}{|(\Stwo)^{-1}|^{l/2}}\\\end{eqnarray*}\[\frac{\partial |(\Stwo)^{-1}|}{\partial(\sigma^2)^{-1}_{i_1 i_2}\ldots\partial(\sigma^2)^{-1}_{i_{2m-1}i_{2m}}}=\Gamma_{i_1 i_2\ldots i_{2m-1} i_{2m}}=C_{i_1 i_2\ldots i_{2m-1} i_{2m}}|((\Stwo)^{-1})^{i_1 i_2\ldots i_{2m-1} i_{2m}}|\]e tale espressione \`e antisimmetrica rispetto alle permutazioni degli indici che nonsiano $i_{2k-1}\leftrightarrow i_{2k}$ o $(i_{2k-1}, i_{2k})\leftrightarrow (i_{2j-1},i_{2j})$. La antisimmetria del coefficiente $C$ \`e dovuta ai coefficienti$(-1)^{i+j}$ che compaiono nella espressione del determinante e che risultano di segno opposto se i modi in cui sono accoppiati gli indici sono diversi. Perci\`o
+si ottiene che la derivata parziale di $I$ \`e:\begin{eqnarray*}&&\sqrt{\frac{|(\Stwo)^{-1}|}{(2\pi)^n}}\frac{\partial^m I}{\partial(\sigma^2)^{-1}_{i_{k_1} i_{k_2}}\ldots\partial(\sigma^2)^{-1}_{i_{k_{2m-1}}i_{k_{2m}}}}=(-1)^m\frac{(2m-1)!!}{2^m}\sigma^2_{i_1 i_2}\ldots\sigma^2_{i_{2m-1}i_{2m}}+\\&&\sum\Gamma_{i_{k_1}\ldots i_{k_{2p}}}\ldots\Gamma_{i_{k_{l+1}}\ldots i_{k_{2q}}}\sigma^2_{i_{k_{2q+1}}i_{k_{2q+2}}}\ldots\sigma^2_{i_{k_{2m-1}}i_{k_{2m}}}\\\end{eqnarray*}Nella espressione precedente i termini del tipo $\Gamma_{i_{k_1}\ldots i_{k_{2q}}}$compaiono con lo stesso coefficiente per tutte le permutazioni del tipo
+$i_{k_{2p-1}}\leftrightarrow i_{k_{2p}}$, cio\`e $2^q$ termini. Sommando tutti i $(2m-1)!!$ termini che contribuiscono al valore di aspettazione cercato, per ogni termine del tipo $\Gamma_{i_{k_1}\ldots i_{k_{2q}}}$ sono presenti tutte le $2^q(2q-1)!!=(2q)!/q!$ permutazioni di indici che non differiscono solo per scambi deltipo $(i_{k_{2q-1}},i_{k_{2q}})\leftrightarrow(i_{k_{2p-1}},i_{k_{2p}})$. Tutte queste permutazioni
+possono essere accoppiate in modo tale che le due permutazioni differiscano per uno
+scambio del tipo $i_{k_{2q-1}}\leftrightarrow i_{k_{2p-1}}$ ({\bf Da dimostrare}) e perci\`o la somma \`e nulla. Quindi si ottiene:\[\langle x_{i_1}x_{i_2}\ldots x_{i_{2m}}\rangle=\sum_{\{i_k\}}\sigma^2_{i_{k_1} i_{k_2}}\ldots\sigma^2_{i_{k_{2m-1}} i_{k_{2m}}}\]dove la somma \`e fatta sulle $(2m-1)!!$ permutazioni che non differiscono solo
+per scambi del tipo $i_{k_{2q-1}}\leftrightarrow i_{k_{2q}}$ o $(i_{k_{2q-1}},i_{k_{2q}})\leftrightarrow(i_{k_{2p-1}},i_{k_{2p}})$.
+%%
+\subsubsection{Media}
+La media della variabile aleatoria $m$, funzione delle variabili aleatorie gaussiane
+a media nulla ${\bf x}$ \`e:
+\begin{eqnarray}\label{mean}\langle m \rangle&=&\int m f({\bf x})\,d{\bf x}=\mbar+\sum_i v_i\langle x_i \rangle +\frac{1}{2}\sum_{ij}a_{ij}\langle x_i x_j\rangle\nonumber\\&=&\mbar+\frac{1}{2}\sum_{ij}a_{ij}\sigma^2_{ij}=\mbar+\frac{1}{2}{\rm Tr}(\Stwo A)
+\end{eqnarray}
+Quindi nel caso di dipendenza quadratica anche la {\em risoluzione} delle variabili
+(gaussiane) originarie influenza il valor medio della variabile aleatoria che ne\`e funzione.
+%
+\subsubsection{Varianza}
+La varianza della variabile $m$ o il suo momento centrato secondo \`e:
+\begin{eqnarray*}
+\sigma^2_m&=&E[(m-\langle m \rangle)^2]=\langle( m-\langle m\rangle)^2\rangle=\left\langle\left({\bf v\cdot x}+\frac{1}{2}({\bf x}\cdot A{\bf x})-\frac{1}{2}{\rm Tr}(\Stwo A)\right)^2\right\rangle\\
+&=&\sum_{ij}v_iv_j\langle x_ix_j\rangle+\frac{1}{4}\sum_{ijkl}a_{ij}a_{kl}\langle x_i x_j x_k x_l\rangle- \frac{1}{4}{\rm Tr}(\Stwo A)\sum_{ij}a_{ij}\langle x_i x_j\rangle\\
+&=&({\bf v}\cdot\Stwo{\bf v})+\frac{1}{4}\sum_{ijkl}a_{ij}a_{kl}(\sigma^2_{ij}\sigma^2_{kl}+\sigma^2_{ik}\sigma^2_{jl}+\sigma^2_{jk}\sigma^2_{li})-\frac{1}{4}[{\rm Tr}(\Stwo A)]^2\\
+&=&({\bf v}\cdot\Stwo{\bf v})+\frac{1}{4}\left[[{\rm Tr}(\Stwo A)]^2+2{\rm Tr}(\Stwo A\Stwo A)-[{\rm Tr}(\Stwo A)]^2\right]\\
+&=&({\bf v}\cdot\Stwo{\bf v})+\frac{1}{2}{\rm Tr}(\Stwo A\Stwo A)
+\end{eqnarray*}
+Il primo termine \`e quello che si avrebbe assumendo una semplice dipendenza lineare di $m$ da ${\bf x}$ mentre il secondo termine \`e dovuto alla dipendenza quadratica
+e, in generale, non \`e legato al contributo quadratico nella media.
+%
+\subsubsection{Asimmetria}
+L'asimmetria della distribuzione della variabile aleatoria $m$ \`e legata al suo momento centrato terzo:
+\begin{eqnarray*}
+&&E[(m-\langle m\rangle)^3]=\left\langle\left({\bf v\cdot x}+\frac{1}{2}({\bf x}\cdot A{\bf x})-\frac{1}{2}{\rm Tr}(\Stwo A)\right)^3\right\rangle\\&&=\left\langle\frac{3}{2}({\bf v\cdot x})^2({\bf x}\cdot A{\bf x})-\frac{3}{2}({\bf v\cdot x})^2{\rm Tr}(\Stwo A)\right.\\
+&&\left.+\frac{3}{8}({\bf x}\cdot A{\bf x})[{\rm Tr}(\Stwo A)]^2-\frac{3}{8}({\bf x}\cdot A{\bf x})^2{\rm Tr}(\Stwo A)+\frac{1}{8}({\bf x}.A{\bf x})^3-\frac{1}{8}[{\rm Tr}(\Stwo A)]^3\right\rangle\\
+&&=\frac{3}{2}\sum_{ijkl}v_iv_j a_{kl}\langle x_ix_jx_kx_l\rangle-\frac{3}{2}{\rm Tr}(\Stwo A)\sum_{ij}v_iv_j\langle x_ix_j\rangle+\frac{3}{8}[{\rm Tr}(\Stwo A)]^2\sum_{ij}a_{ij}\langle x_ix_j\rangle\\
+&&-\frac{3}{8}{\rm Tr}(\Stwo A)\sum_{ijkl}a_{ij}a_{kl}\langle x_ix_jx_kx_l\rangle+\frac{1}{8}\sum_{ijklpq}a_{ij}a_{kl}a_{pq}\langle x_ix_jx_kx_lx_px_q\rangle-\frac{1}{8}[{\rm Tr}(\Stwo A)]^3\\
+&&=\frac{3}{2}\sum_{ijkl}v_iv_ja_{kl}(\sigma^2_{ij}\sigma^2_{kl}+\sigma^2_{ik}\sigma^2_{jl}+\sigma^2_{il}\sigma^2_{kj})-\frac{3}{2}{\rm Tr}(\Stwo A)\sum_{ij}v_iv_j\sigma^2_{ij}\\
+&&+\frac{3}{8}[{\rm Tr}(\Stwo A)]^2\sum_{ij}a_{ij}\sigma^2_{ij}-\frac{3}{8}{\rm Tr}(\Stwo A)\sum_{ijkl}a_{ij}a_{kl}(\sigma^2_{ij}\sigma^2_{kl}+\sigma^2_{ik}\sigma^2_{jl}+\sigma^2_{il}\sigma^2_{kj})\\
+&&+\frac{1}{8}\sum_{ijklpq}a_{ij}a_{kl}a_{pq}\left(\sum_{perm} \sigma^2_{ij}\sigma^2_{kl}\sigma^2_{pq}\right)-\frac{1}{8}[{\rm Tr}(\Stwo A)]^3\\
+&&=3({\bf v}\cdot\Stwo A\Stwo{\bf v})-\frac{3}{4}{\rm Tr}(\Stwo A){\rm Tr}(\Stwo A\Stwo A)\\
+&&+\frac{1}{8}\left[[{\rm Tr}(\Stwo A)]^3+6{\rm Tr}(\Stwo A){\rm Tr}(\Stwo A\Stwo A)+8{\rm Tr}(\Stwo A \Stwo A \Stwo A)\right]-\frac{1}{8}[{\rm Tr}(\Stwo A)]^3\\
+&&=3({\bf v}\cdot\Stwo A\Stwo{\bf v})+{\rm Tr}(\Stwo A \Stwo A \Stwo A)
+\end{eqnarray*}
+\subsubsection{momenti successivi}
+I momenti centrati di ordine $n-$esimo si possono calcolare usando l'espressione
+seguente:
+\begin{eqnarray*}
+&&E[(m-\langle m\rangle)^n]=E\left[\left({\bf v\cdot x}+\frac{1}{2}({\bf x}\cdot A{\bf x})-\frac{1}{2}{\rm Tr}(\Stwo A)\right)^n\right]=\\
+&&=\sum_{k=0}^n\sum_{l=0}^k\frac{n!}{l!(k-l)!(n-k)!}\left[-\frac{1}{2}{\rm Tr}(\Stwo A)\right]^l\left\langle({\bf v\cdot x})^{n-k}\left[\frac{1}{2}({\bf x}\cdot A{\bf x})\right]^{k-l}\right\rangle
+\end{eqnarray*}
+Da questa espressione si pu\`o ricavare il termine lineare in $\Stwo A$ dei momenti dispari, ossia dei momenti che sono nulli nel caso di distribuzione gaussiana.
+I termini lineari in $A$ si ottengono per $k=1\ ,l=0$ e $k=1\ ,l=1$:
+\begin{eqnarray*}
+&&\frac{n}{2}\langle({\bf v\cdot x})^{n-1}({\bf x}\cdot A{\bf x})\rangle-\frac{n}{2}\langle({\bf v\cdot x})^{n-1}{\rm Tr}(\Stwo A)\rangle\\
+&&=\frac{n}{2}\left[(n-2)!!{\rm Tr}(\Stwo A)({\bf v}\cdot\Stwo{\bf v})^\frac{n-1}{2}+(n-1)(n-2)!!({\bf v}\cdot\Stwo A\Stwo{\bf v})({\bf v}\cdot\Stwo{\bf v})^\frac{n-3}{2}\right]-\\
+&&-\frac{n}{2}(n-2)!!{\rm Tr}(\Stwo A)({\bf v}\cdot\Stwo{\bf v})^\frac{n-1}{2}\\
+&&=\frac{n-1}{2}n!!({\bf v}\cdot\Stwo A\Stwo{\bf v})({\bf v}\cdot\Stwo{\bf v})^\frac{n-3}{2}
+\end{eqnarray*}
+dove il coefficiente del primo e del terzo termine \`e il numero di permutazioni del tipo considerato in precedenza di $n-1$ indici, il secondo coefficiente \`e il numero
+di permutazioni rimaste fra quelle con $n+1$ indici: $n!!-(n-2)!!=(n-1)(n-2)!!$.Quindi risulta che per i momenti dispari con $n\geq 3$ il contributo lineare
+in $A$ \`e sempre del tipo $({\bf v}\cdot\Stwo A\Stwo{\bf v})$.
+\subsection{Caso unidimensionale}
+Nel caso in cui $m$ sia funzione di una sola variabile gaussiana $x$ \`e possibile
+ricavare l'espressione esatta della funzione di densit\`a di probabilit\`a della
+variabile $m$.\\Se $m$ \`e funzione di $x$ secondo la relazione:
+\[m=vx+\frac{1}{2}ax^2\]
+allora per ogni valore di $m$ esistono due possibili valori di $x$:
+\[x_{m\pm}=\frac{-v\pm\sqrt{v^2+2am}}{a}=\frac{-v\pm v\sqrt{1+\frac{2am}{v^2}}}{a}\]
+se $v^2+2am\geq 0$. La soluzione con il segno ``+'', $x_{m+}$ \`e quella che rimane finita nel limite $a/v^2\rightarrow 0$. Inoltre $|x_{m+}|<|x_{m-}|$. Per ricavare la densit\`a di probabilit\`a di $m$ bisogna calcolare:
+\begin{eqnarray*}
+p(m)&=&\frac{1}{\sqrt{2\pi\sigma^2}}\int \exp\left[-\frac{x^2}{2\sigma^2}\right]\delta\left(m-vx-\frac{1}{2}ax^2\right)\,dx\\
+&=&\frac{1}{\sqrt{2\pi\sigma^2}}\int \exp\left[-\frac{x^2}{2\sigma^2}\right]\frac{\delta(x-x_{m-})+\delta(x-x_{m+})}{\sqrt{v^2+2am}}\,dx\\
+&=&\frac{1}{\sqrt{2\pi\sigma^2v^2(1+\frac{2am}{v^2})}}\left(\exp\left[-\frac{1}{2\sigma^2 a^2}\left(2v^2+2am-2v^2\sqrt{1+\frac{2am}{v^2}}\right)\right]\right.\\
+&&+\left.\exp\left[-\frac{1}{2\sigma^2 a^2}\left(2v^2+2am+2v^2\sqrt{1+\frac{2am}{v^2}}\right)\right]\right)\\
+\end{eqnarray*}
+dove il secondo termine pu\`o essere trascurato perch\'e \`e esponenzialmente pi\`u piccolo del primo. Inoltre nel limite $a/v^2\ll 1$, sviluppando fino al secondo
+ordine la radice, si ottiene:
+\[p(m)=\frac{1}{\sqrt{2\pi\sigma^2v^2}}\exp\left[-\frac{2v^2}{2\sigma^2 a^2}\left(\frac{1}{8}\frac{4a^2m^2}{v^4}\right)\right]=\frac{1}{\sqrt{2\pi\sigma^2v^2}}\exp\left[-\frac{m^2}{2\sigma^2 v^2}\right]\]
+Per ricavare quanto i momenti centrati di questa distribuzione differiscono da quelli di una distribuzione gaussiana per poterli confrontare con quelli del caso $n-$dimensionale, \`e utile esprimere questa distribuzione come prodotto
+della distribuzione gaussiana con media nulla e varianza $\sigma^2_m=\sigma^2 v^2$che si ottiene nel caso lineare con una funzione che tende a 1 nel limite
+$a/v^2\rightarrow 0$:
+\begin{eqnarray*}
+p(m)&=&\frac{1}{\sqrt{2\pi\sigma^2v^2}}\exp\left[-\frac{m^2}{2\sigma^2v^2}\right]\cdot\\
+&&\left[\frac{1}{\sqrt{1+\frac{2am}{v^2}}}\exp\left[-\frac{1}{2\sigma^2a^2}\left(2v^2+2am-2v^2\sqrt{1+\frac{2am}{v^2}-\frac{m^2a^2}{v^2}}\right)\right]\right]\\\end{eqnarray*}
+\subsubsection{Risultato}
+\subsubsection{Momenti centrati}
+\subsection{Momenti centrati gaussiana per polinomio}
+Per poter costruire la funzione di distribuzione di $m$ nel caso $n-$dimensionale
+\`e utile ricavare le espressioni per i momenti centrati di funzioni di distribuzione del tipo:
+\[p(x)=f(x)(1+c(x-\mu)^{2r-1})\]
+dove $f(x)$ \`e la distribuzione gaussiana di media $\mu$ e deviazione standard
+$\sigma$.\\
+Consideriamo il caso $r=1$; per prima cosa occorre ricavare il valor medio della
+distribuzione dopo aver osservato che la distribuzione \`e correttamente normalizzata
+anche se non \`e garantito che $p(x)>0$ per ogni valore di $x$: per il momento trascuriamo questo problema.
+\[\langle x\rangle=\int x\,p(x)\,dx=\int x\,f(x)(1+c(x-\mu))=\mu+c\sigma^2=\mu+\Delta\]
+Il momento centrato $n-$esimo risulta allora essere (dove $\widetilde E$ rappresenta
+il valore di aspettazione rispetto alla sola distribuzione gaussiana):
+\begin{eqnarray*}
+&&E\left[(x-\langle x\rangle)^n\right]=E\left[(x-\mu-\Delta)^n\right]=\sum_{k=0}^n\left(\begin{array}{c}n\\k\end{array}\right)\Delta^{n-k}E\left[(x-\mu)^k\right](-1)^{n-k}\\
+&&=\sum_{k=1}^n\left(\begin{array}{c}n\\k\end{array}\right)(-1)^{n-k}\Delta^{n-k}\left[\widetilde E\left[(x-\mu)^k\right]+c\widetilde E\left[(x-\mu)^{k+1}\right]\right]+(-1)^n\Delta^n\\
+\end{eqnarray*}
+Nel caso in cui $n=2m$ \`e pari allora:
+\begin{eqnarray*}
+&&E\left[(x-\langle x\rangle)^n\right]=\\
+&&=\sum_{l=1}^m\left[\left(\begin{array}{c}2m\\2l\end{array}\right)\Delta^{2m-2l}\widetilde E\left[(x-\mu)^{2l}\right]-\left(\begin{array}{c}2m\\2l-1\end{array}\right)\Delta^{2m-2l+1}c\widetilde E\left[(x-\mu)^{2l}\right]\right]+\Delta^n\\
+&&=\sigma^{2m}\left[-2m(c^2\sigma^2)^m+\right.\\
+&&\left.\sum_{l=1}^{m-1}\left[\left(\begin{array}{c}2m\\2l\end{array}\right)(2l-1)!!-\left(\begin{array}{c}2m\\2l+1\end{array}\right)(2l+1)!!\right](c^2\sigma^2)^{m-l}+(2m-1)!!\right]+\Delta^{2m}\\
+&&=(2m-1)!!\sigma^{2m}\left[1-\sum_{l=0}^{m-1}\frac{(2m-2l-1)}{(2m-2l-1)!!}\left(\begin{array}{c}m\\l\end{array}\right)(c^2\sigma^2)^{m-l}\right]
+\end{eqnarray*}
+Nel caso in cui $n=2m+1$ ($m\ge 1$) \`e dispari si ottiene:
+\begin{eqnarray*}
+&&E\left[(x-\langle x\rangle)^n\right]=-\sum_{l=1}^m\left(\begin{array}{c}2m+1\\2l\end{array}\right)\Delta^{2m+1-2l}\widetilde E\left[(x-\mu)^{2l}\right]\\
+&&+c\sum_{l=1}^{m+1}\left(\begin{array}{c}2m+1\\2l-1\end{array}\right)\Delta^{2m+2-2l}\widetilde E\left[(x-\mu)^{2l}\right]-\Delta^n\\
+&&=\sigma^{2m+1}\left[(2m+1)(c\sigma)^{2m+1}+\right.\\
+&&\left.\sum_{l=1}^m\left[\left(\begin{array}{c}2m+1\\2l+1\end{array}\right)(2l+1)!!-\left(\begin{array}{c}2m+1\\2l\end{array}\right)(2l-1)!!\right](c\sigma)^{2m-2l+1}\right]-\Delta^{2m+1}\\
+&&=(2m+1)!!(c\sigma)\sigma^{2m+1}\left[\sum_{l=0}^m\frac{2m-2l}{(2m-2l+1)!!}\left(\begin{array}{c}m\\l\end{array}\right)(c^2\sigma^2)^{m-l}\right]\\
+\end{eqnarray*}
+\subsection{Approssimazione del gradiente}
+\subsubsection{Accordo dei momenti}
+\subsubsection{Interpretazione della soluzione}
+\subsection{Approssimazione della distanza minima}
+%
+\section{Espressione analitica del fit cinematico}
+La tecnica del fit cinematico viene utilizzata per migliorare la risoluzione
+di una variabile casuale  funzione delle variabili cinematiche di un evento
+ricostruito. Normalmente accade che le variabili cinematiche di un evento
+siano legate da uno o pi\`u vincoli dovuti a leggi di conservazione come energia e impulso. L'effetto del rivelatore con la sua risoluzione finita\`e tale che le corrispondenti variabili cinematiche ricostruite siano delle
+variabili casuali che non soddisfano pi\`u i vincoli originali. Una quantit\`a
+che \`e funzione delle variabili cinematiche diventa una variabile casuale con una distribuzione che dipende dalle distribuzioni delle variabili cinematiche
+ricostruite.\\
+Il fit cinematico consiste nel determinare per ogni evento ricostruito un nuovo
+insieme di variabili cinematiche che soddisfano i vincoli cinematici originali e legati alle variabili cinematiche ricostruite originali dal fatto che sia minima
+la distanza calcolata come il $\chi^2$ fra le variabili dell'evento ricostruito e
+quelle dell'evento risultante dopo il fit cinematico. Si pu\`o dimostrare che la risoluzione di una variabile casuale funzione delle variabili cinematiche dopo
+il fit cinematico \`e migliore rispetto a quella ottenuta usando gli eventi ricostruiti originali se la parametrizzazione della risoluzione usata per calcolare
+il $\chi^2$ (la {\em metrica}) \`e uguale alla vera risoluzione delle variabili
+cinematiche ricostruite. Nel caso in cui la parametrizazione non sia esattamente quella reale la risoluzione che si ottiene pu\`o essere ancora migliore di quella
+che si ottiene senza fit cinematico ma \`e peggiore di quella che si otterrebbe con
+il caso ideale. Per poter effettuare il fit cinematico minimizzando il $\chi^2$ occorre utilizzare per parametrizzare la {\em differenza} fra due eventi delle variabili cinematiche che abbiano una distribuzione di probabilit\`a gaussiana quando vengono ricostruite.
+\subsection{Prima approssimazione: vincolo lineare}
+%
+Consideriamo il caso di un solo vincolo {\em lineare} nelle variabili gaussiane $\bfx$: $\fone(\bfx)=f(\bfx)=f_\bfx\cdot\bfx-k=0$
+dove con $f_\bfx$ i indica il gradiente della funzione $f$ rispetto alle
+variabili $\bfx$.\\Nell' ipotesi che la parametrizzazione delle variabili $\bfx$ venga fatta
+utilizzando la vera matrice degli errori $\Stwo$, i valori delle nuove
+variabili $\bfy$ dopo il fit cinematico si ottengono minimizzando:\[\chi^2=\sum_{ij}(x_i-y_i)(\Stwo)^{-1}_{ij}(x_j-y_j)\]con il vincolo $f_\bfx\cdot\bfy=k$. Utilizzando la tecnica dei moltiplicatori
+di Lagrange si ottiene:
+\[\bfy=\bfx-\lambda\Stwo f_\bfx\rightarrow y_i=x_i-\lambda\Stwo_{ij}f_{x_j}\]
+con
+\[\lambda=\frac{f_\bfx\cdot\bfx-k}{f_\bfx\Stwo f_\bfx}\]
+e quindi:
+\begin{equation}
+\label{plane_proj}
+y_i=\sum_j\left[\delta_{ij}-\frac{(\Stwo f_\bfx)_i f_{x_j}}{f_\bfx\Stwo f_\bfx}\right]x_j+k\frac{(\Stwo f_\bfx)_i}{f_\bfx\Stwo f_\bfx}.
+\end{equation}
+Le nuove variabili $\bfy$ sono lineari rispetto alle variabili $\bfx$ e perci\`o
+sono anch'esse gaussiane. Se $\langle\bfx\rangle=\overline{\bfx}$ e questo evento giace sul vincolo allora $k=f_\bfx\cdot\overline{\bfx}$ e quindi $\langle\bfy\rangle=\langle\bfx\rangle=\overline{\bfx}$. La matrice di correlazione delle variabili$\bfy$ \`e data da:
+\[\Stwo_{yij}=\sum_{kl}\left[\delta_{ik}-\frac{(\Stwo f_\bfx)_i f_{x_k}}{f_\bfx\Stwo f_\bfx}\right]\Stwo_{kl}\left[\delta_{jl}-\frac{(\Stwo f_\bfx)_j f_{x_l}}{f_\bfx\Stwo f_\bfx}\right]=\Stwo_{ij}-\frac{(\Stwo f_\bfx)_i(\Stwo f_\bfx)_j}{f_\bfx\Stwo f_\bfx}\]
+Si pu\`o verificare che la deviazione standard della variabile gaussiana $z=f_\bfx\cdot\bfy$ \`e nulla, cio\`e le variabili $\bfy$ sono distribuite {\em solo} sul vincolo.\\Nel caso in cui nel fit cinematico venga usata come parametrizzazione delle risoluzioni delle variabili $\bfx$ una matrice $M$ diversa da $\Stwo$ si ottiene
+che le variabili $\bfy$ dopo il fit cinematico sono funzione delle variabili $\bfx$come segue:
+\[y_i=\sum_j\left[\delta_{ij}-\frac{(Mf_\bfx)_i f_{x_j}}{f_\bfx M f_\bfx}\right]x_j+k\frac{(M f_\bfx)_i}{f_\bfx M f_\bfx}\]
+e in questo caso la matrice degli errori delle variabili $\bfy$ diventa:\[\Sigma^{2(M)}_{yij}=\Stwo_{ij}-\frac{(M f_\bfx)_j(\Stwo f_\bfx)_i}{f_\bfx M f_\bfx}-\frac{(M f_\bfx)_i(\Stwo f_\bfx)_j}{f_\bfx M f_\bfx}+\frac{(M f_\bfx)_i(M f_\bfx)_j(f_\bfx\Stwo f_\bfx)}{(f_\bfx M f_\bfx)^2}\]
+Si potrebbe verificare che la matrice degli errori di $\bfy$ ottenuta usando $\Stwo$ come metrica \`e meglio di quella ottenuta usando $M$ confrontando i volumi degli elissoidi (restringendosi alla superficie del vincolo, altrimenti si
+ottiene il volume nullo) calcolando il determinante della matrice degli errori.
+Pi\`u semplicemente si pu\`o verificare che per ogni variabile $z={\bf a}\cdot\bfy$
+lineare nelle variabili $\bfy$ e quindi anch'essa gaussiana, la differenza della
+deviazione standard di $z$ ottenuta con un fit cinematico con $M$ e quella ottenuta
+usando $\Stwo$ \`e:
+\[\sigma^{2(M)}_z-\sigma^2_z={\bf a}\Sigma^{2(M)}_y{\bf a}-{\bf a}\Stwo_y{\bf a}=(f_\bfx\Stwo f_\bfx)\left[\frac{({\bf a}M f_\bfx)^2}{f_\bfx M f_\bfx}-\frac{({\bf a}\Stwo f_\bfx)^2}{f_\bfx \Stwo f_\bfx}\right]^2\]
+e quindi \`e sempre positiva. Perci\`o la {\em risoluzione} di ogni variabile
+funzione delle variabili $\bfy$ \`e la migliore quando nel fit cinematico si usala parametrizzazione {\em giusta}.
+%
+\subsection{Trattamento pi\`u generale e ordini superiori}
+%
+In un trattamento pi\`u completo del fit cinematico sono presenti tre diversi vettori nello spazio delle variabili cinematiche che descrivono l'evento:$\bfxcap^{true}$ che rappresenta l'evento non influenzato dagli effetti del
+rivelatore e della ricostruzione, $\bfxcap^{reco}$ che rappresenta le variabili cinematiche dell'evento, cos\`\i\ come sono state ricostruite, e $\bfxcap^{fit}$che sono le variabili cinematiche dopo il fit cinematico. Nel caso in cui i
+vincoli siano scelti correttamente valgono relazioni del tipo: $\fcapies(\bfxcap^{true})=0$ dove $\fcapies$ \`e l'i-esimo vincolo del fit cinematico.\\
+Per fare il fit cinematico occorre scegliere delle variabili che siano gaussiane
+per parametrizzare la {\em differenza} fra l'evento ricostruito ($\bfxcap^{reco}$)
+e l'evento dopo il fit cinematico ($\bfxcap^{fit}$). La scelta di queste variabili
+pu\`o dipendere da $\bfxcap^{true}$. Indichiamo con $\bfw$ il vettore che
+rappresenta la differenza fra l'evento ricostruito e l'evento dopo il fit allora
+fare il fit cinematico significa trovare il minimo di:
+\[\chi^2=\sum_{ij}w_i(\Stwo)^{-1}_{ij}w_j\]
+con il vincolo (o i vincoli):\[\fcapies(\bfxcap^{fit})=0\]
+Se indichiamo con $\bfx$ la differenza fra l'evento vero e l'evento ricostruito
+e $\bfy$ quella fra l'evento vero e quello dopo il fit, usando le stesse variabili,
+e nell'ipotesi, {\em non sempre vera per tutte le possibili scelte di variabili}
+che $\bfw=\bfx-\bfy$, allora, per ogni evento $\bfxcap^{true}$, il fit cinematico
+consiste nel trovare i valori di $\bfy$ che al variare di $\bfx$ minimizzano:
+\[\chi^2=\sum_{ij}(\bfx-\bfy)_i(\Stwo)^{-1}_{ij}(\bfx-\bfy)_j\]
+con il vincolo (o i vincoli):
+\begin{equation}
+\label{vincoli}
+\fcapies(\bfxcap^{fit})=0\rightarrow\fcapies(\bfxcap^{fit}(\bfxcap^{true},\bfy))=0\rightarrow\fxes{i}(\bfy)=0
+\end{equation}
+dove le funzioni $\fxes{i}$ variano al variare di $\bfxcap^{true}$ e, nel caso in cui
+il vincolo \`e corretto ($\fcapies(\bfxcap^{true})=0$) allora $\fxes{i}(0)=0$.
+Abbiamo quindi definito, per ogni valore di $\bfxcap^{true}$ una funzione multidimensionale che lega il vettore $\bfx$ di variabili gaussiane con il vettore $\bfy$. Dovendo poi studiare il comportamento di una particolare funzione degli eventi dopo il fit cinematico, \`e possibile ricavare le propriet\`a (i momenti)della distribuzione di probabilit\`a di questa funzione per ogni valore di$\bfxcap^{true}$.\\
+Utilizzando la tecnica dei moltiplicatori di Lagrange occorre trovare i valori
+di $\bfy$ e $\lambda_i$ che minimizzano,
+per ogni valore di $\bfx$, la funzione:
+\[\chi^2=\sum_{ij}(\bfx-\bfy)_i(\Stwo)^{-1}_{ij}(\bfx-\bfy)_j+\sum_k\lambda_k\fxes{k}(\bfy)\]
+che \`e equivalente a ricavare la funzione $\bfy={\bfycap}(\bfx)$ dalle funzioni
+implicite:
+\begin{eqnarray*}
+\frac{\partial\chi^2}{\partial y_i}=\sum_k\lambda_k\fxes{k}_{y_i}(\bfy)-2\sum_j(\Stwo)^{-1}_{ij}(\bfx-\bfy)_j&=&0\\\fxes{k}(\bfy)&=&0
+\end{eqnarray*}
+Il primo gruppo di equazioni pu\`o essere trasformato nel seguente:
+\[\sum_k\lambda_k\sum_i\Stwo_{ji}\fxes{k}_{y_i}(\bfy)-2(x_j-y_j)=0\]
+Tali funzioni implicite non possono, in generale, essere esplicitate in modo semplice, quello che si pu\`o fare \`e usare il teorema delle funzioni implicite
+(Dini) per ricavare i valori delle derivate della funzione $\bfycap(\bfx)$ dai valori delle derivate delle funzioni implicite. Questo permette di ottenere
+lo sviluppo in serie di Taylor della funzione $\bfy=\bfycap(\bfx)$ in un intorno
+di $\bfx=0$. Infine se consideriamo una osservabile $\Obs=G(\bfxcap^{fit})=g(\bfy)$ funzione delle variabili dopo il fit cinematico \`e possibile, per ogni evento$\bfxcap^{true}$, esprimere questa osservabile in serie di potenze delle variabili
+gaussiane $\bfx$. Considerando i termini fino al secondo ordine si ottiene:
+\begin{eqnarray}
+\label{yfromx}y_i&=&\ycapi(0)+\sum_j\ycapi_{x_j}(0)x_j+\frac{1}{2}\sum_{jk}\ycapi_{x_jx_k}(0)x_jx_k\\
+\label{obsfromx}\Obs&=&g(0)+\sum_jg_{y_j}(0)y_j+\frac{1}{2}\sum_{jk}g_{y_jy_k}(0)y_jy_k 
+\end{eqnarray}
+dove con $\ycapi_{x_j}$, $g_{y_j}$,\dots si indicano le derivate delle funzioni
+rispetto alle variabili. Combinando le due espressioni precedenti si ottiene:
+\begin{eqnarray}
+\label{ztayl}\Obs&=&g(0)+g_{\bfy}(0)\cdot\bfycap(0)+\frac{1}{2}\sum_{jk}g_{y_jy_k}Y^{(j)}(0)Y^{(k)}(0)+\nonumber\\
+&&\sum_j\left(\sum_ig_{y_i}(0)\ycapi_{x_j}(0)\right)x_j+\nonumber\\
+&&\frac{1}{2}\sum_{ij}\left[\sum_k g_{y_k}(0)Y^{(k)}_{x_ix_j}(0)+\sum_{kl}g_{y_ky_l}(0)Y^{(k)}_{x_i}(0)Y^{(l)}_{x_j}(0)\right]x_ix_j,
+\end{eqnarray}
+occorre, quindi, ricavare i valori della funzione $\bfy=\bfycap(\bfx)$ e delle sue
+derivate prime e seconde nel punto $\bfx=0$ a partire dalle equazioni che si ottengono minimizzando il $\chi^2$ e dalle equazioni dei vincoli.
+%
+\subsubsection{caso I. Evento {\em true} sul vincolo}
+%
+Nel caso di $m$ vincoli e con lo spazio usato per parametrizzare gli eventi di
+dimensione $n$ vi sono $n+m$ funzioni implicite da cui ricavare le$n+m$ funzioni esplicite $\bfy^\prime=\bfycap^\prime(\bfx)\rightarrow(\bfy,{\bf \lambda})=(\bfycap(\bfx),{\bf \Lambda}(\bfx))$ con $\bfy=y_i\ (i=1,n)$
+e ${\bf\lambda}=\lambda_j\ (j=1,m)$ i moltiplicatori di Lagrange. Usando la definizione (\ref{vincoli}) per gli $m$ vincoli riferiti alle variabili $\bfy$,le funzioni implicite sono:
+\begin{eqnarray*}
+F^{(k)}(\bfx,\bfy^\prime)=0 &\Rightarrow&\sum_{j=1}^m\lambda_j\sum_{i=1}^n\Stwo_{ki}\fxes{j}_{y_i}(\bfy)-2(x_k-y_k)=0\ \ (k=1,n)\\
+F^{(n+l)}(\bfx,\bfy^\prime)=0&\Rightarrow& f^{(l)}(\bfy)=0\ \ (l=1,m).
+\end{eqnarray*}
+e indichiamo  ${\bf F}=(F^{(1)},\dots,F^{(n)},F^{(n+1)},\dots,F^{(n+m)})$ il vettore dato dalle $n+m$
+funzioni implicite.
+Secondo il teorema delle funzioni implicite le derivate prime delle funzioni
+$\bfycap^\prime$ sono date da:
+\begin{equation}
+\label{Dini_first}Y^{\prime(i)}_{x_j}(\bfx)=\frac{\partial Y^{\prime(i)}}{\partial x_j}(\bfx)=-\sum_{k=1}^{n+m}\left[\frac{\partial{\bf F}}{\partial\bfy^\prime}(\bfx,\bfycap^\prime(\bfx))\right]^{-1}_{ik}\left[\frac{\partial{\bf F}}{\partial\bfx}(\bfx,\bfycap^\prime(\bfx))\right]_{kj}.
+\end{equation}
+Nel nostro caso (indici ripetuti sottointendono una sommatoria):
+%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\label{dfdx}
+\left[\frac{\partial{\bf F}}{\partial\bfx}(\bfx,\bfy^\prime)\right]_{ji}=\frac{\partial F^{(j)}}{\partial x_i}=\overbrace{\left.\left(\begin{array}{ccc}-2 &\cdots&0 \\\vdots &\ddots&\vdots\\0&\cdots&-2 \\  &\vdots& \\ \cdots &0&\cdots \\ &\vdots& \end{array}\right)\right\}}^{i=1,n}{\scriptstyle j=1,n+m}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%
+mentre
+%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\label{dfdyprime}
+\left[\frac{\partial{\bf F}}{\partial\bfy^\prime}(\bfx,\bfy^\prime)\right]_{ij}=\frac{\partial F^{(i)}}{\partial y^\prime_j}=\overbrace{\left.\left(\begin{array}{c|c}\mbox{$\begin{array}{c} \\2\delta_{ij}+\lambda_s\Stwo_{il}f^{(s)}_{y_ly_j}\\{\scriptstyle (j=1,n\ i=1,n)} \end{array}$}&\mbox{$\begin{array}{c} \\ \Stwo_{ik}f^{(j-n)}_{y_k}\\{\scriptstyle (n\times m)}\end{array}$}\\ \hline\mbox{$\begin{array}{c} \\f^{(i-n)}_{y_j}\\{\scriptstyle (m\times n)}\end{array}$}&0_{(m\times m)}\end{array}\right)\right\}}^{j=1,n+m}{\scriptstyle i=1,n+m}.
+\end{equation}
+%%%%%%%%%%%%%%%%%%
+Se l'evento $\bfx=0$ appartiene al vincolo allora $(\bfx=0,\bfy=0,\lambda_j=0)$
+\`e una soluzione delle funzioni implicite e quindi calcolando la matrice delle
+derivate nel punto $\bfx=0$ si ottiene:
+%%%%%%%%%%
+\begin{equation}
+\label{dfdyprime0}
+\left.\left[\frac{\partial{\bf F}}{\partial\bfy^\prime}(\bfx,\bfy^\prime)\right]_{ij}\right|_0=\left.\frac{\partial F^{(i)}}{\partial y^\prime_j}\right|_0=\overbrace{\left.\left(\begin{array}{c|c}\mbox{$\begin{array}{ccc} & & \\ & 2I_{(n\times n)} & \\& &  \end{array}$}&\mbox{$\begin{array}{c}\\ \Stwo_{ik}f^{(j-n)}_{y_k}\\{\scriptstyle (n\times m)}\end{array}$}\\ \hline \mbox{$\begin{array}{c} \\f^{(i-n)}_{y_j}\\{\scriptstyle (m\times n)}\end{array}$}&0_{(m\times m)}\end{array}\right)\right\}}^{j=1,n+m}{\scriptstyle i=1,n+m}.
+\end{equation}
+%%%%%%%%%%%
+La matrice inversa della matrice (\ref{dfdyprime0}) si ottiene risolvendo le
+equazioni che si ottengono decomponendo la matrice inversa in blocchi $n\times n$,$n\times m$, $m\times n$ e $m\times m$. Definendo la matrice ${\cal M}$, $m\times m$, come:
+\begin{equation}
+\label{Mmatrix}
+{\cal M}_{ij}=\sum_{rs}\fxes{i}_{y_r}\Stwo_{rs}\fxes{j}_{y_s}
+\end{equation}
+la matrice inversa risulta essere:
+%%%%%%%%%%%%%%
+\begin{equation}
+\label{dfdyinv}
+\left.\left[\frac{\partial{\bf F}}{\partial\bfy^\prime}(\bfx,\bfy^\prime)\right]^{-1}_{ij}\right|_0=\overbrace{\left.\left(\begin{array}{c|c}\mbox{$\begin{array}{c} \\\frac{1}{2}\left.\left(\delta_{ij}-{\Stwo_{ik}\fxes{q}_{y_k}\Minv_{pq}\fxes{p}_{y_j}}\right)\right|_0\\{\scriptstyle (j=1,n\ i=1,n)} \end{array}$}&\left.{\Stwo_{ik}\fxes{p}_{y_k}\Minv_{p,j-n}}\right|_0\\ \hline\left.\Minv_{i-n,q}{\fxes{q}_{y_j}}\right|_0 &\left.-2\Minv_{i-n,j-n}\right|_0\end{array}\right)\right\}}^{j=1,n+m}{\scriptstyle i=1,n+m}.
+\end{equation}
+%%%%%%%%%%%%%%%
+Utilizzando la relazione (\ref{Dini_first}) si ottiene che:
+\begin{eqnarray}
+\label{First_der}
+\ycapi_{x_j}(0)=\frac{\partial \ycapi}{\partial x_j}(0)=\left[\frac{\partial\bfycap}{\partial\bfx}(0)\right]_{ij}&=&\left.\delta_{ij}-\Stwo_{ik}\fxes{p}_{y_k}\Minv_{pq}\fxes{q}_{y_j}\right|_0\\
+\frac{\partial\Lambda^{(s)}}{\partial x_j}(0)&=&\left.2\Minv_{sq}\fxes{q}_{y_j}\right|_0.
+\end{eqnarray}
+Nel caso di un vincolo lineare, un iperpiano, l'espressione (\ref{First_der}) corrisponde alla espressione (\ref{plane_proj}) con $k=0$.\\Per calcolare le derivate seconde delle funzioni $\bfy=\bfycap(\bfx)$ indichiamo
+con:
+\begin{eqnarray*}
+A_{ij}&=&\left[\frac{\partial {\bf F}}{\partial \bfy^\prime}\right]_{ij}=\frac{\partial F^{(i)}}{\partial y^\prime_j}\\
+B_{ij}&=&\left[\frac{\partial {\bf F}}{\partial \bfx}\right]_{ij}=\frac{\partial F^{(i)}}{\partial x_j}
+\end{eqnarray*}
+le matrici delle derivate prime delle funzioni implicite $F^{(i)}(\bfx,\bfy^\prime)$
+rispetto alle variabili $\bfx$ e $\bfy^\prime$ (che include i moltiplicatori
+di Lagrange $\lambda_j$). Allora $Y^{\prime(i)}_{x_j}=\sum_m-A^{-1}_{im}B_{mj}$ e quindi:
+\[Y^{\prime(i)}_{x_jx_k}=\frac{\partial^2 Y^{\prime(i)}}{\partial x_j\partial x_k}=-\sum_{s=1}^{n+m}\sum_{r=1}^{n+m}\left[\frac{\partial A^{-1}_{ir}}{\partial x_k}+\frac{\partial A^{-1}_{ir}}{\partial y^\prime_s}\frac{\partial Y^{\prime(s)}}{\partial x_k}\right]B_{rj}\]
+dove si \`e tenuto conto del fatto che la matrice $B$, data da (\ref{dfdx}), \`e costante. La derivata
+degli elementi di una matrice inversa si ottengono osservando che:
+\begin{equation}
+\label{derinv}
+A_{ij}A^{-1}_{jk}=\delta_{ik}\Rightarrow\frac{\partial A_{ij}}{\partial x}A^{-1}_{jk}+A_{ij}\frac{\partial A^{-1}_{jk}}{\partial x}=0\Rightarrow\frac{\partial A^{-1}_{lk}}{\partial x}=-A^{-1}_{li}\frac{\partial A_{ij}}{\partial x}A^{-1}_{jk}\end{equation}Inoltre, siccome la matrice $A$ non dipende da $\bfx$, si ottiene:\begin{equation}\label{dersecmatr}\frac{\partial^2 Y^{\prime(i)}}{\partial x_j\partial x_k}=-\sum_{r=1}^{n+m}\sum_{s=1}^{n+m}\sum_{l=1}^{n+m}\sum_{t=1}^{n+m}\sum_{h=1}^{n+m}A^{-1}_{ir}\frac{\partial A_{rs}}{\partial y^\prime_l}A^{-1}_{sh}B_{hj}A^{-1}_{lt}B_{tk}\end{equation}e tale matrici devono essere calcolate nel punto $(\bfx,\bfy,\lambda_j)=0$.\\Combinando le varie componenti insieme si ottiene:
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{eqnarray*}
+&&\frac{\partial^2 \ycapi}{\partial x_j\partial x_k}(0)=\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_jy_k}  -\Stwo_{it}\fxes{p}_{y_ty_j}\Minv_{pq}\fxes{q}_{y_k}  -\Stwo_{it}\fxes{p}_{y_ty_k}\Minv_{pq}\fxes{q}_{y_j}\\
+&&+\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_sy_j}   \Stwo_{sr}\fxes{u}_{y_r}\Minv_{uv}\fxes{v}_{y_k}  +\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_sy_k}   \Stwo_{sr}\fxes{u}_{y_r}\Minv_{uv}\fxes{v}_{y_j}\\
+&&+\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_s}   \Stwo_{sr}\fxes{u}_{y_ry_j}\Minv_{uv}\fxes{v}_{y_k}  +\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_s}   \Stwo_{sr}\fxes{u}_{y_ry_k}\Minv_{uv}\fxes{v}_{y_j}\\
+&&+\Stwo_{it}\fxes{p}_{y_ty_s}(\Minv_{pq}\fxes{q}_{y_j})   (\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uv}\fxes{v}_{y_k})  +\Stwo_{it}\fxes{p}_{y_ty_s}(\Minv_{pq}\fxes{q}_{y_k})   (\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uv}\fxes{v}_{y_j})\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_s}   \Stwo_{sr}\fxes{u}_{y_ry_h}(\Minv_{uv}\fxes{v}_{y_j})  (\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wz}\fxes{z}_{y_k})\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_s}   \Stwo_{sr}\fxes{u}_{y_ry_h}(\Minv_{uv}\fxes{v}_{y_k})  (\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wz}\fxes{z}_{y_j})\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_sy_h}   (\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uv}\fxes{v}_{y_j})   (\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wz}\fxes{z}_{y_j})\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Caso II. Effetto vincolo {\em sbagliato}}
+Fino ad ora i risultati sono stati ottenuti nell'ipotesi che l'evento vero soddisfi
+i vincoli ossia che $\fcapies(\bfxcap_{true})=0$. In questa ipotesi si ottiene che
+$\bfycap(0)=0$ e $\Lambda^{(i)}(0)=0$. Se, invece, l'evento vero non soddisfa i
+vincoli, ossia se i vincoli sono {\em sbagliati} accade che $\bfycap(0)$ e $\Lambda^{(i)}(0)$ non sono nulli e questo influenza:
+\begin{itemize}
+\item il valor medio di $\bfy$,\item il valore della osservabile $\Obs$ nella relazione (\ref{ztayl}) e il suo valoremedio,
+\item il calcolo delle derivate prime e seconde delle funzioni $\bfycap$ calcolatenel punto $\bfx=0$.
+\end{itemize}
+Nel caso in cui $\fcapies(\bfx_{true})=\fxes{i}(0)=c_i$ \`e possibile calcolare lo sviluppo in serie di Taylor nei coefficienti $c_i$ di $\bfycap(0)$, utile nel caso
+in cui i coefficienti siano piccoli, utilizzando le equazioni:
+\begin{eqnarray}
+\label{implvinc}
+F^{(k)}(0,\bfy^\prime_0)=0 &\Rightarrow&\sum_{j=1}^m\lambda_{j0}\sum_{i=1}^n\Stwo_{ki}\fxes{j}_{y_i}(\bfy_0)+2y_{k0}=0\ \ (k=1,n)\nonumber\\
+F^{(n+i)}(0,\bfy^\prime_0)=0&\Rightarrow&\fxes{i}(\bfy_0)=\fxes{i}(0)-c_i\ \ (i=1,m)
+\end{eqnarray}
+dove $\bfy_0=\bfycap(0)$ e $\lambda_{j0}=\Lambda^{(j)}(0)$.  Interpretando le funzioni (\ref{implvinc}) come funzioni implicite di $\bfy_0$,$\lambda_{j0}$ e $c_i$ ($\widetilde F^{(i)}(\bfy^\prime_0,{\bf c})=0$), le derivate $\partial\bfy^\prime_0/\partial {\bf c}$ si ricavano da:\[\frac{\partial y^\prime_{i0}}{\partial c_j}(0)=-\sum_k\left[\frac{\partial{\bf\widetilde F}}{\partial\bfy^\prime_0}(\bfy^\prime_0({\bf c}),{\bf c})\right]^{-1}_{ik}\left[\frac{\partial{\bf\widetilde F}}{\partial{\bf c}}(\bfy^\prime_0({\bf c}),{\bf c})\right]_{kj}\]
+con:
+%%%%%%%%%%%
+\[\left[\frac{\partial{\bf\widetilde F}}{\partial\bfy^\prime_0}(\bfy^\prime_0,{\bf c})\right]_{ij}=\frac{\partial \widetilde F^{(i)}}{\partial y^\prime_{0j}}=\overbrace{\left.\left(\begin{array}{c|c}\mbox{$\begin{array}{c} \\2\delta_{ij}+\lambda_s\Stwo_{il}f^{(s)}_{y_ly_j}\\{\scriptstyle (j=1,n\ i=1,n)} \end{array}$}&\mbox{$\begin{array}{c} \\ \Stwo_{ik}f^{(j-n)}_{y_k}  \\{\scriptstyle (n\times m)} \end{array}$}\\ \hline\mbox{$\begin{array}{c} \\ f^{(i-n)}_{y_j} \\{\scriptstyle (m\times n)} \end{array}$}&0_{(m\times m)}\end{array}\right)\right\}}^{j=1,n+m}{\scriptstyle i=1,n+m}.\]
+%%%%%%%%%%%
+che diventa:
+%%%%%%%%%%
+\begin{equation}
+\label{dfdyprime3}
+\left.\left[\frac{\partial{\bf\widetilde F}}{\partial\bfy^\prime_0}(\bfy^\prime_0,{\bf c})\right]_{ij}\right|_0=\left.\frac{\partial \widetilde F^{(i)}}{\partial y^\prime_{0j}}\right|_0=\overbrace{\left.\left(\begin{array}{c|c}\mbox{$\begin{array}{ccc} & & \\ & 2I_{(n\times n)} & \\& &  \end{array}$}&\mbox{$\begin{array}{c}\\  \Stwo_{ik}f^{(j-n)}_{y_k}  \\{\scriptstyle (n\times m)} \end{array}$}\\ \hline\mbox{$\begin{array}{c} \\f^{(i-n)}_{y_j} \\ {\scriptstyle (m\times n)} \end{array}$}&0_{(m\times m)}\end{array}\right)\right\}}^{j=1,n+m}{\scriptstyle i=1,n+m}
+\end{equation}
+%%%%%%%%%%%%
+mentre
+\[\left[\frac{\partial{\bf\widetilde F}}{\partial{\bf c}}(\bfy^\prime_0,{\bf c})\right]_{ji}=\frac{\partial\widetilde F^{(j)}}{\partial c_i}=\overbrace{\left.\left(\begin{array}{ccc}  &\vdots& \\ \cdots &0&\cdots \\ &\vdots& \\1 &\cdots&0 \\\vdots &\ddots&\vdots\\0&\cdots&1  \end{array}\right)\right\}}^{i=1,m}{\scriptstyle j=1,n+m}.\]
+Utilizzando (\ref{dfdyinv}) come matrice inversa di (\ref{dfdyprime3}) si ottiene che:
+\begin{eqnarray}
+\label{dydc}
+\frac{\partial y_{i0}}{\partial c_j}(0)&=&-\sum_{k=1}^n\sum_{p=1,}^m\Stwo_{ik}\fxes{p}_k\Minv_{pj}\ \ (i=1,n\ j=1,m)\\
+\frac{\partial\lambda_{i0}}{\partial c_j}(0)&=&2\Minv_{ij}\ \ (i=1,m\ j=1,m).
+\end{eqnarray} 
+Perci\`o, al primo ordine in $c_j$ si ottiene che:\[y_{i0}=\ycapi(0)=-\sum_{j=1}^m\sum_{k=1}^n\sum_{p=1,}^m\Stwo_{ik}\fxes{p}_k\Minv_{pj}c_j\]
+e, in base alla relazione (\ref{ztayl}) una osservabile $\Obs$, funzione di $\bfy$ acquista un termine costante pari a:\[\Delta\Obs=\sum_{i=1}^n g_{y_i}(0)\ycapi(0)=-\sum_{i=1}^n\sum_{k=1}^n\sum_{p=1,}^m\sum_{j=1}^m g_{y_i}(0)\Stwo_{ik}\fxes{p}_k\Minv_{pj}c_j.\]
+La dipendenza di $\bfy_0$ al secondo ordine in $c_j$ si ottiene calcolando le
+derivate seconde di $\bfy_0=\bfycap(0)$ rispetto a $c_j$ con la stessa
+tecnica utilizzata per calcolare le derivate seconde $\ycapi_{x_jx_k}(0)$. Ilrisultato \`e:
+%%%%%%%%%%%%%%%%
+\begin{eqnarray}
+\label{dydcdc}
+&&\frac{\partial^2 y_i0}{\partial c_j\partial c_k}(0)=\nonumber\\
+&&\Stwo_{it}\fxes{p}_{y_ty_s}(\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uj})\Minv_{pk}+\Stwo_{it}\fxes{p}_{y_ty_s}(\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uk})\Minv_{pj}\nonumber\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{p}_{y_s}\Stwo_{sr}\fxes{u}_{y_ry_h}(\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wk})\Minv_{uj}\nonumber\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{p}_{y_s}\Stwo_{sr}\fxes{u}_{y_ry_h}(\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wj})\Minv_{uk}\nonumber\\
+&&-\Stwo_{it}\fxes{p}_{y_t}\Minv_{pq}\fxes{q}_{y_sy_h}(\Stwo_{sr}\fxes{u}_{y_r}\Minv_{uj})(\Stwo_{hg}\fxes{w}_{y_g}\Minv_{wk}).
+\end{eqnarray}
+%%%%%%%%%%%%%%%%
+Quindi, utilizzando le relazioni (\ref{dydc}) e (\ref{dydcdc}) si ottiene $\bfy_0$
+fino al secondo ordine in $c_j$ come:\[y_{i0}=\ycapi(0)=\frac{\partial y_{i0}}{\partial c_j}(0)c_j+\frac{1}{2}\frac{\partial^2 y_{i0}}{\partial c_j\partial c_k}(0)c_jc_k\]
+e la corrispondente variazione della osservabile \`e data da:\[\Delta\Obs=g_{y_i}(0)\frac{\partial y_{i0}}{\partial c_j}(0)c_j+g_{y_i}(0)\frac{1}{2}\frac{\partial^2 y_{i0}}{\partial c_j\partial c_k}(0)c_jc_k\] 
+\subsubsection{Effetto di un bias in una variabile ricostruita}
+Le variabili $\bfx$ quantificano l'effetto del rivelatore e della ricostruzione
+dell'evento che trasformano l'evento da $\bfxcap_{true}$ a $\bfxcap_{reco}$. Per poter
+effettuare il fit cinematico minimizzando il $\chi^2$ come viene fatto in questo
+documento, occorre scegliere le variabili $\bfx$ in modo che siano gaussiane; inoltre
+occorre conoscere eventuali bias di queste variabili, ossia se $\langle\bfx\rangle\neq0$. Nel caso alcuni di questi bias non siano tenuti in conto e rimossi nella
+espressione del $\chi^2$ del fit cinematico, i valori medi delle variabili $\bfy$,e delle osservabili funzioni di $\bfy$ vengono alterati. Per tenere conto dei bias\`e sufficiente esprimere nelle relazioni (\ref{yfromx}) e (\ref{obsfromx}) le variabili $\bfy$ e l'osservabile $\Obs$ come funzione delle variabili $\bfx^\prime=\bfx-\langle\bfx\rangle$ che sono gaussiane e con media nulla. Nel caso in cui
+si tenga conto solo della dipendenza al primo ordine da $\bfx$ allora si ottiene che:
+\begin{eqnarray}
+\label{ybias}\langle y_i\rangle&=&\sum_{j=1}^n\left(\delta_{ij}-\fxes{p}_{y_j}\Minv_{pq}\Stwo_{ik}\fxes{q}_{y_k}\right)\langle x_j\rangle\\
+\label{obsbias}\langle\Obs\rangle&=&g(0)+\sum_{i=1}^n\sum_{j=1}^n g_{y_i}(0)\left(\delta_{ij}-\Stwo_{ik}\fxes{p}_{y_k}\Minv_{pq}\fxes{q}_{y_j}\right)\langle x_j\rangle
+\end{eqnarray}
+In generale, se si tengono conto anche di ordini superiori in $\bfx$, i termini
+che dipendono da $\langle\bfx\rangle$ rappresentano la {\em variazione} che subisce
+il valor medio di $\bfy$ o della osservabile in presenza o in assenza del bias, mentre
+per ottenere il valore medio occorre tenere conto che la media di una variabile funzione non lineare di variabili gaussiane contiene dei termini che dipendono dalla
+matrice delle varianze delle variabili gaussiane come nella relazione (\ref{mean}). 
+%
+\section{Caso reale: eventi $WW$ semileptonici}
+%
+Nella misura della massa del $W$ utilizzando gli eventi $WW\to{\ell\nu}qq$
+le variabili che vengono utilizzate per parametrizzare le differenze fra l'evento
+{\em true} e l'evento ricostruito sono:
+\begin{equation}
+\label{paramx}
+\bfx=(\de_1,\db_1,\ptrad{1},\ptaz{1},\de_2,\db_2,\ptrad{2},\ptaz{2},\dinvpt,\dtl,\dphi)
+\end{equation}
+dove le prime due quaterne di variabili si riferiscono ai due jet adronici e le ultime tre variabili parametrizzano i leptone. Per ricavare la massa del $W$ l'ultimo ingrediente mancante \`e il quadrimpluso del neutrino che viene determinato
+imponendo la conservazione dell'impulso e la massa nulla del neutrino secondo le
+relazioni:
+\begin{eqnarray}
+\label{fourneu}
+\bfp_\nu&=&-\bfp_\ell-\bfp_1-\bfp_2\nonumber\\
+E_\nu&=&|\bfp_\nu|
+\end{eqnarray}
+Indichiamo con $p_{Whad}=(E_{Whad},\bfp_{Whad})$ e con $p_{Wlept}=(E_{Wlept},\bfp_{Wlept})$ i due 4-vettori che si ottengono sommando fra loro i 4-vettori dei jet adronici e i 4-vettori del leptone carico con quello del
+neutrino, rispettivamente e con $\Mhad$ e $\Mlept$ le masse invarianti
+dei suddetti quadrivettori.\\
+Una possibile procedura per misurare la massa del bosone $W$ con questi eventi \`e quella di eseguire un fit cinematico imponendo due vincoli:
+\begin{enumerate}
+\item uguaglianza della energia totale con l'energia totale dei fasci
+\item uguaglianza della masse invarianti del sistema adronico e leptonico;
+\end{enumerate}
+questo si riflette nelle due seguenti funzioni per i vincoli:
+\begin{eqnarray}
+\label{vinc1}
+\fcap^{(1)}(\bfxcap_{fit})&=&E_1+E_2+E_\ell+E_\nu-\sqrt{s}=0\nonumber\\&\Rightarrow&E_1+E_2+E_\ell+\sqrt{(-\bfp_\ell-\bfp_1-\bfp_2)^2}-\sqrt{s}=0\\
+\fcap^{(2)}(\bfxcap_{fit})&=&\Mhad-\Mlept=0\nonumber\\&\Rightarrow&\sqrt{(E_1+E_2)^2-(\bfp_1+\bfp_2)^2}+\nonumber\\
+\label{vinc2}&-&\sqrt{(E_\ell+\sqrt{(-\bfp_\ell-\bfp_1-\bfp_2)^2})^2-(-\bfp_1-\bfp_2)^2}=0.
+\end{eqnarray}
+In realt\`a, per semplificare i conti che seguiranno \`e pi\`u comodo imporre come secondo vincolo la condizione equivalente $M^2_{Whad}=M^2_{Wlept}$. In questo
+modo otteniamo:
+\begin{eqnarray}
+\label{vinc2new}
+\fcap^{(2)}(\bfxcap_{fit})&=&M^2_{Whad}-M^2_{Wlept}=0\nonumber\\
+&\Rightarrow&(E_1+E_2)^2-(\bfp_1+\bfp_2)^2+\nonumber\\
+&-&((E_\ell+\sqrt{(-\bfp_\ell-\bfp_1-\bfp_2)^2})^2-(-\bfp_1-\bfp_2)^2)=0\nonumber\\
+&\Rightarrow&(E_1+E_2)^2-(E_\ell+\sqrt{(-\bfp_\ell-\bfp_1-\bfp_2)^2})^2=0.
+\end{eqnarray}
+L'osservabile che viene misurata \`e la massa invariante del sistema leptonico
+o di quello adronico, indifferentemente, in quanto il secondo vincolo le rende
+uguali. Per ricavare le espressioni necessarie al calcolo delle derivate consideriamo
+come osservabile la semisomma delle due masse, quindi:
+\begin{eqnarray}
+\label{obs}
+\Obs&=&\frac{1}{2}(\Mhad+\Mlept)\nonumber\\
+&=&\frac{1}{2}\left(\sqrt{(E_1+E_2)^2-(\bfp_1+\bfp_2)^2}+\right.\nonumber\\
+&+&\left.\sqrt{(E_\ell+\sqrt{(-\bfp_\ell-\bfp_1-\bfp_2)^2})^2-(-\bfp_1-\bfp_2)^2}\right).
+\end{eqnarray}
+Le funzioni $g$ e $\fxes{i}$, e le loro derivate, si ricavano esprimendo le funzioni (\ref{obs}), (\ref{vinc1}) e (\ref{vinc2new}) in in termini dei 4-impulsi dell'evento {\em true}e dei parametri $\bfx$, come definiti in (\ref{paramx}), che portano dall'evento{\em true} a quello {\em reco} o quello {\em fit}.
+%
+\subsection{Derivate delle funzioni dei vincoli}
+%
+Date le funzioni dei vincoli (\ref{vinc1}) e (\ref{vinc2new}), le derivate prime
+delle corrispondenti funzioni $\fxes{i}$ rispetto alle variabili $\bfx$ e calcolate
+per $\bfx={\bf 0}$ sono:
+\begin{eqnarray}
+\fxes{1}_{x_{1,5}}=\frac{\partial\fxes{1}}{\partial\de_i}({\bf 0})&=&1-\frac{\bfp_\nu\cdot\bfp_i}{E_\nu E_i}\\
+\fxes{1}_{x_{2,6}}=\frac{\partial\fxes{1}}{\partial\db_i}({\bf 0})&=& -\frac{E_i}{E_\nu}\frac{\bfp_\nu\cdot\bfp_i}{|\bfp_i|}\\
+\fxes{1}_{x_{3,7}}=\frac{\partial\fxes{1}}{\partial\ptrad{i}}({\bf 0})&=&-\frac{\bfp_\nu\cdot{\bf k}_i}{E_\nu}\\
+\fxes{1}_{x_{4,8}}=\frac{\partial\fxes{1}}{\partial\ptaz{i}}({\bf 0})&=&-\frac{\bfp_\nu\cdot{\bf k^\prime}_i}{E_\nu}\\
+\fxes{1}_{x_9}=\frac{\partial\fxes{1}}{\partial\dinvpt}({\bf 0})&=&-\left[\frac{|\bfp_\ell|^2}{E_\ell}-\frac{\bfp_\nu\cdot\bfp_\ell}{E_\nu}\right]|\bfp_\ell|\sin\theta_\ell\\
+\fxes{1}_{x_{10}}=\frac{\partial\fxes{1}}{\partial\dtl}({\bf 0})&=&-\left[\frac{\bfp_\nu\cdot\hat{\bf z}}{E_\nu}-\frac{\bfp_\ell\cdot\hat{\bf z}}{E_\ell}\right]|\bfp_\ell|\sin\theta_\ell\\
+\fxes{1}_{x_{11}}=\frac{\partial\fxes{1}}{\partial\dphi}({\bf 0})&=&-\frac{(\bfp_\ell\times\bfp_\nu)\cdot\hat{\bf z}}{E_\nu}\\
+\end{eqnarray}
+e
+\begin{eqnarray}
+\fxes{2}_{x_{1,5}}=\frac{\partial\fxes{2}}{\partial\de_i}({\bf 0})&=&2\left[(E_1+E_2)+(E_\nu+E_\ell)\frac{\bfp_\nu\cdot\bfp_i}{E_\nu E_i}\right]\\
+\fxes{2}_{x_{2,6}}=\frac{\partial\fxes{2}}{\partial\db_i}({\bf 0})&=&2(E_\nu+E_\ell)\frac{E_i}{E_\nu}\frac{\bfp_\nu\cdot\bfp_i}{|\bfp_i|}\\
+\fxes{2}_{x_{3,7}}=\frac{\partial\fxes{2}}{\partial\ptrad{i}}({\bf 0})&=&2(E_\nu+E_\ell)\frac{\bfp_\nu\cdot{\bf k}_i}{E_\nu}\\
+\fxes{2}_{x_{4,8}}=\frac{\partial\fxes{2}}{\partial\ptaz{i}}({\bf 0})&=&2(E_\nu+E_\ell)\frac{\bfp_\nu\cdot{\bf k^\prime}_i}{E_\nu}\\
+\fxes{2}_{x_9}=\frac{\partial\fxes{2}}{\partial\dinvpt}({\bf 0})&=&2(E_\nu+E_\ell)\left[\frac{|\bfp_\ell|^2}{E_\ell}-\frac{\bfp_\nu\cdot\bfp_\ell}{E_\nu}\right]|\bfp_\ell|\sin\theta_\ell\\
+\fxes{2}_{x_{10}}=\frac{\partial\fxes{2}}{\partial\dtl}({\bf 0})&=&2(E_\nu+E_\ell)\left[\frac{\bfp_\nu\cdot\hat{\bf z}}{E_\nu}-\frac{\bfp_\ell\cdot\hat{\bf z}}{E_\ell}\right]|\bfp_\ell|\sin\theta_\ell\\
+\fxes{2}_{x_{11}}=\frac{\partial\fxes{2}}{\partial\dphi}({\bf 0})&=&2(E_\nu+E_\ell)\frac{(\bfp_\ell\times\bfp_\nu)\cdot\hat{\bf z}}{E_\nu}
+\end{eqnarray}
+dove i vettori ausiliari ${\bf k}_i$ e ${\bf k^\prime}_i$ sono definiti in termini
+della direzione dei jet adronici come:
+\begin{eqnarray*}
+{\bf k}_i&=&\left(|\cos\theta_i|\cos\phi_i, |\cos\theta_i|\sin\phi_i,-\frac{\cos\theta_i}{|\cos\theta_i|}\sin\theta_i\right)\\
+{\bf k^\prime}_i&=&\left(-\frac{\cos\theta_i}{|\cos\theta_i|}\sin\phi_i, \frac{\cos\theta_i}{|\cos\theta_i|}\cos\phi_i,0\right)
+\end{eqnarray*}
+e l'energia $E_\nu$ e l'impulso $\bfp_\nu$ del neutrino sono quelli ricavati utilizzando le relazioni (\ref{fourneu}), non necessariamente uguali a quelli reali a causa, ad esempio, della ISR.\\
+Dalle espressioni delle derivate dei vincoli si ricavano le seguenti osservazioni:
+\begin{enumerate}
+\item l'impulso del leptone $\bfp_\ell$ contribuisce solo nell'energia del leptone $E_\ell$ in quanto il termine $\bfp_\ell+\bfp_\nu$ viene sostituito da $-(\bfp_1+\bfp_2)$,
+\item fra le derivate del primo e del secondo vincolo vale la seguente relazione:
+\begin{equation}
+\label{ftwovsfone}
+\fxes{2}_{x_i}=-2(E_\nu+E_\ell)\fxes{1}_{x_i}\;\;(i=2,3,4,6,7,8,9,10,11)
+\end{equation}
+\item indicando con 
+\begin{equation}
+\label{auxvect}
+{\bf v}_i=(\betaone,E_1\bfp_1/|\bfp_1|,{\bf k}_1,{\bf k^\prime}_1,\betatwo,E_2\bfp_2/|\bfp_2|,{\bf k}_2,{\bf k^\prime}_2)\ i=1,8
+\end{equation}
+abbiamo che:
+\begin{eqnarray*}
+\fxes{1}_{x_{1,5}}&=&1-\betanu\cdot{\bf v}_{1,5}\\
+\fxes{1}_{x_i}&=&-\betanu\cdot{\bf v}_i\;\;(i=2,3,4,6,7,8)
+\end{eqnarray*}
+e
+\begin{eqnarray*}
+\fxes{2}_{x_{1,5}}&=&2(E_1+E_2)+2(E_\nu+E_\ell)\betanu\cdot{\bf v}_{1,5}\\
+\fxes{2}_{x_i}&=&2(E_\nu+E_\ell)\betanu\cdot{\bf v}_i\;\;(i=2,3,4,6,7,8).
+\end{eqnarray*}
+La prima di queste relazioni diventa:\[\fxes{2}_{x_{1,5}}=2E_{beam}(1+\betanu\cdot{\bf v}_{1,5})\]
+nel caso in cui $\Mhad=\Mlept$\end{enumerate}
+%
+\subsection{Derivate della funzione della osservabile}
+%
+Le derivate calcolate nel punto $\bfx={\bf 0}$ della funzione $g$ della osservabile
+data da (\ref{obs}) sono:
+\begin{eqnarray}
+g_{x_{1,5}}&=&\frac{\partial g}{\partial\de_i}({\bf 0})=\frac{1}{2}\left[\frac{E_1+E_2}{\Mhad}-\frac{\bfp_i}{E_i}\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\right]\\
+g_{x_{2,6}}&=&\frac{\partial g}{\partial\db_i}({\bf 0})=-\frac{1}{2}\frac{E_i}{|\bfp_i|}\bfp_i\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\\
+g_{x_{3,7}}&=&\frac{\partial g}{\partial\ptrad{i}}({\bf 0})=-\frac{1}{2}{\bf k}_i\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\\
+g_{x_{4,8}}&=&\frac{\partial g}{\partial\ptaz{i}}({\bf 0})=-\frac{1}{2}{\bf k^\prime}_i\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\\
+g_{x_9}&=&\frac{\partial g}{\partial\dinvpt}({\bf 0})=-\frac{1}{2}\frac{(E_\nu+E_\ell)}{\Mlept}\left[\frac{|\bfp_\ell|^2}{E_\ell}-\frac{\bfp_\nu\cdot\bfp_\ell}{E_\nu}\right]|\bfp_\ell|\sin\theta_\ell\\
+g_{x_{10}}&=&\frac{\partial g}{\partial\dtl}({\bf 0})=-\frac{1}{2}\frac{(E_\nu+E_\ell)}{\Mlept}\left[\frac{\bfp_\nu\cdot\hat{\bf z}}{E_\nu}-\frac{\bfp_\ell\cdot\hat{\bf z}}{E_\ell}\right]|\bfp_\ell|\sin\theta_\ell\\
+g_{x_{11}}&=&\frac{\partial g}{\partial\dphi}({\bf 0})=-\frac{1}{2}\frac{(E_\nu+E_\ell)}{\Mlept}\frac{(\bfp_\ell\times\bfp_\nu)\cdot\hat{\bf z}}{E_\nu}
+\end{eqnarray}
+Nelle derivate rispetto alle variabili che descrivono i jet adronici c'\`e un termine
+comune che pu\`o essere riscritto in diversi modi:
+\begin{eqnarray*}
+&&\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]=\\
+&&\frac{\Elept\bfp_\nu}{\Mlept E_\nu}+\Phad\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)=\glept\betanu+\ghad\betahad-\glept\betalept=\\
+&&\frac{1}{\Mlept}\left(\frac{E_\ell}{E_\nu}\bfp_\nu-\bfp_\ell\right)+\frac{1}{\Mhad}(\bfp_1+\bfp_2)
+\end{eqnarray*}
+inoltre, nel caso in cui $\Mhad=\Mlept$ lo stesso termine diventa:
+\[\frac{E_W}{M_W}\frac{\bfp_\nu}{E_\nu}+2\frac{\bfp_W}{M_W}=\gamma_W(\betanu+2\betaw)=\frac{E_{beam}}{M_W}\frac{\bfp_\nu}{E_\nu}+2\frac{\bfp_W}{M_W}=\frac{E_{beam}}{M_W}(\betanu+2\betaw)\]
+Utilizzando la definizione (\ref{auxvect}) dei vettori ${\bf v}_i$ abbiamo che
+\begin{eqnarray*}
+g_{x_{1,5}}&=&\frac{(E_1+E_2)}{2\Mhad}-\frac{1}{2}{\bf v}_{1,5}\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\\
+g_{x_i}&=&-\frac{1}{2}{\bf v}_i\cdot\left[\frac{(E_\nu+E_\ell)\bfp_\nu}{E_\nu\Mlept}+(\bfp_1+\bfp_2)\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\right]\;\;(i=2,3,4,6,7,8).
+\end{eqnarray*}
+Rispetto alle derivate delle funzioni dei vincoli abbiamo le seguenti relazioni:
+\begin{eqnarray}
+\label{derrel}
+g_{x_i}&=&\frac{(E_\nu+E_\ell)}{2\Mhad}\fxes{1}_{x_i}-\frac{1}{2}{\bf v}_i\cdot\Phad\left(\frac{1}{\Mhad}+\frac{1}{\Mlept}\right)\;\; (i=2,3,4,6,7,8)\nonumber\\
+g_{x_i}&=&\frac{(E_\nu+E_\ell)}{2\Mhad}\fxes{1}_{x_i}\;\; (i=9,10,11).
+\end{eqnarray}
+Nel caso in cui $\Mhad=\Mlept$ le relazioni diventano:
+\begin{eqnarray}
+\label{derrel2}
+g_{x_i}&=&\frac{E_W}{2M_W}\fxes{1}_{x_i}-{\bf v}_i\cdot\frac{\Phad}{M_W}=\gamma_W\left(\frac{1}{2}\fxes{1}_{x_i}-{\bf v}_i\cdot\betahad\right)\;\;(i=1,2,3,4,5,6,7,8)\nonumber\\
+g_{x_i}&=&\frac{E_W}{2M_W}\fxes{1}_{x_i}=\frac{\gamma_W}{2}\fxes{1}_{x_i}\;\;(i=9,10,11)
+\end{eqnarray}
+Dalle relazioni (\ref{derrel}) o (\ref{derrel2}) si ricava che le derivate della
+osservabile massa differiscono dalle derivate del vincolo sulla energia totale
+per dei termini proporzionali al {\em boost} $\betaw$ dei W. Dal termine al primo
+ordine in (\ref{ztayl}) e dalla espressione (\ref{First_der}) si ottiene che se
+il rapporto $g_{x_i}({\bf 0})/\fxes{j}_{x_i}({\bf 0})$ \`e uguale per tutti i valori
+di $i$ per uno qualsiasi dei vincoli $\fxes{j}$ allora\[\sum_ig_{y_i}(0)\ycapi_{x_j}(0)=\sum_ig_{y_i}(0)\left(\delta_{ij}-\Stwo_{ik}\fxes{p}_{y_k}(0)\Minv_{pq}\fxes{q}_{y_j}(0)\right)=0,\]perci\`o l'effetto del fit cinematico \`e tanto maggiore quanto \`e minore il {\em boost} dei W, ossia quanto pi\`u l'energia nel centro di massa \`e vicino
+alla soglia.
+%
+\subsection{Applicazioni pratiche}
+%
+\subsubsection{Effetto scalibrazioni nella misura energia jets}
+L'effetto di un bias (o scalibrazione) della misura della energia dei jets pu\`o essere studiato utilizzando la formule (\ref{ybias}) e (\ref{obsbias})nel caso si consideri l'evento globalmente o una osservabile rispettivamente.\\
+Ingredienti importanti sono gli elementi della matrice ${\cal M}$; a seguito della
+relazione (\ref{ftwovsfone}) gli elementi della matrice possono essere espressi come:
+\begin{eqnarray*}
+{\cal M}_{11}=\fxes{1}_{x_i}\Stwo_{ij}\fxes{1}_{x_j}&=&A+2B+C\\
+{\cal M}_{12}=\fxes{1}_{x_i}\Stwo_{ij}\fxes{2}_{x_j}&=&2E_{beam}(A-C)\\
+{\cal M}_{22}=\fxes{2}_{x_i}\Stwo_{ij}\fxes{2}_{x_j}&=&4E^2_{beam}(A-2B+C)
+\end{eqnarray*}
+con
+\begin{eqnarray}
+A_1&=&\Stwo_{11}+\Stwo_{15}=\sigma^2_{E_1}+\sigma_{E_1E_2}\nonumber\\
+A_2&=&\Stwo_{55}+\Stwo_{15}=\sigma^2_{E_2}+\sigma_{E_1E_2}\nonumber\\
+A&=&A_1+A_2=\Stwo_{11}+2\Stwo_{15}+\Stwo_{55}=\sigma^2_{E_1}+2\sigma_{E_1E_2}+\sigma^2_{E_2}\nonumber\\
+B&=&\sum_j(\Stwo_{1j}+\Stwo_{5j})h_{x_j}   =\sum_j(\sigma_{E_1x_j}+\sigma_{E_2x_j})h_{x_j}\nonumber\\
+\label{paramdef}
+C&=&\sum_{ij}h_{x_i}\Stwo_{ij}h_{x_j}=\sum_{ij}h_{x_i}\sigma_{x_ix_j}h_{x_j}\\
+\label{comderiv}h_{x_j}&=&\fxes{1}_{x_j}-\delta_{j(1,5)}
+\end{eqnarray}
+e assumendo che gli eventi {\em true} soddisfino i vincoli e quindi $\Mhad=\Mlept$.
+Inoltre
+\begin{eqnarray*}
+\sum_k\Stwo_{ik}\fxes{1}_{x_k}&=&\sum_k(\Stwo_{ik}\delta_{k(1,5)}+\Stwo_{ik}h_{x_k})=\sum_k(\sigma_{x_ix_k}\delta_{k(1,5)}+\sigma_{x_ix_k}h_{x_k})\\
+\sum_k\Stwo_{ik}\fxes{2}_{x_k}&=&\sum_k2E_{beam}(\Stwo_{ik}\delta_{k(1,5)}-\Stwo_{ik}h_{x_k})=\sum_k2E_{beam}(\sigma_{x_ix_k}\delta_{k(1,5)}-\sigma_{x_ix_k}h_{x_k})
+\end{eqnarray*}
+Con queste espressioni si ottiene che l'effetto sulle variabili $\bfy$ dell'evento
+dopo il fit cinematico dovuto ad un bias, non corretto, sulle energie dei jets \`e dato da:
+\begin{eqnarray*}
+&&\frac{\partial Y_i}{\partial E_1}\Delta_{E_1}+  \frac{\partial Y_i}{\partial E_2}\Delta_{E_2}=\\
+&&\left(\delta_{i1}-\frac{\sigma_{x_ix_k}\delta_{k(1,5)}(C+\betanu\cdot\betaone B)-\sigma_{x_ix_k}h_{x_k}(B+\betanu\cdot\betaone A)}{AC-B^2}\right)\Delta_{E_1}+\\
+&&\left(\delta_{i5}-\frac{\sigma_{x_ix_k}\delta_{k(1,5)}(C+\betanu\cdot\betatwo B)-\sigma_{x_ix_k}h_{x_k}(B+\betanu\cdot\betatwo A)}{AC-B^2}\right)\Delta_{E_2}
+\end{eqnarray*}
+Nel caso in cui le energie dei jets siano scorrelate dalle altre variabili nella{\em parametrizzazione} utilizzata nel fit cinematico si ottiene:
+\begin{eqnarray*}
+B&=&-\betaone\cdot\betanu A_1-\betatwo\cdot\betanu A_2\\
+\sum_k\sigma_{x_ix_k}\delta_{k(1,5)}&=&\delta_{i1}A_1+\delta_{i5}A_2
+\end{eqnarray*}
+e l'effetto sulle variabili dell'evento dopo il fit cinematico diventa:
+\begin{eqnarray*}
+&&\frac{\partial Y_i}{\partial E_1}\Delta_{E_1}+  \frac{\partial Y_i}{\partial E_2}\Delta_{E_2}=\\
+&&\frac{A_2\Delta_{E_1}-A_1\Delta_{E_2}}{AC-B^2}\left[C(\delta_{i1}-\delta_{i5})+B\betanu\cdot(\delta_{i1}\betatwo-\delta_{i5}\betaone)+\sigma_{x_ix_k}h_{x_k}\betanu\cdot(\betaone-\betatwo))\right]
+\end{eqnarray*}
+per cui se vale la relazione\[\frac{\Delta_{E_1}}{A_1}=\frac{\Delta_{E_2}}{A_2}\]
+l'evento dopo il fit cinematico non risulta influenzato dal bias sulla energia
+dei jets adronici. Inoltre se le energie dei jets sono scorrelate fra loro nella
+parametrizzazione usata nel fit cinematico la relazione che annulla le variazioni
+nell'evento dopo il fit cinematico diventa
+\[\frac{\Delta_{E_1}}{\sigma^2_{E_1}}=\frac{\Delta_{E_2}}{\sigma^2_{E_2}}.\]
+Nella approssimazione in cui le risoluzioni delle energie dei jets dipendono solo
+dalla energia dei jets e non dagli angoli si ha che $\sigma^2_{E_i}\propto E_i$
+e quindi la relazione che devono soddisfare i bias delle energie dei jets per annullare le variazioni degli eventi diventa:
+\[\frac{\Delta_{E_1}}{E_1}=\frac{\Delta_{E_2}}{E_2}\Rightarrow\Delta_{E_i}\propto E_i\]
+ossia i bias devono essere proporzionali alla energia stessa del jet. Tale condizione
+si verifica quando il bias \`e dovuto ad una calibrazione errata della misura della
+energia dei jets.\\
+Questa cancellazione pu\`o essere dimostrata non solo al primo ordine ma esattamente
+utilizzando le equazioni per minimizzare il $\chi^2$ con il vincolo.
+I valori di $\bfy$ che minimizzano il $\chi^2$ del fit cinematico sul vincolo
+soddisfano equazioni del tipo:
+\[\sum_i\Stwo_{ki}\frac{\partial\chi^2}{\partial y_i}=-2w_k+\sum_i\left(\lambda_1\Stwo_{ki}\fxes{1}_{y_i}(\bfy)+      \lambda_2\Stwo_{ki}\fxes{2}_{y_i}(\bfy)\right)=0\]
+che, nel caso in cui le variabili relative alle energie dei jets siano scorrelate
+dalle altre variabili diventano:
+\begin{eqnarray*}
+-2(E^{reco}_1-E^{fit}_1)+\lambda_1(\Stwo_{11}\fxes{1}_{E_1}(\bfy)                                  +\Stwo_{15}\fxes{1}_{E_2}(\bfy))\\
++\lambda_2(\Stwo_{11}\fxes{2}_{E_1}(\bfy)+\Stwo_{15}\fxes{2}_{E_2}(\bfy))&=&0\\
+-2(E^{reco}_2-E^{fit}_2)+\lambda_1(\Stwo_{51}\fxes{1}_{E_1}(\bfy)                                  +\Stwo_{55}\fxes{1}_{E_2}(\bfy))\\
++\lambda_2(\Stwo_{51}\fxes{2}_{E_1}(\bfy)+\Stwo_{55}\fxes{2}_{E_2}(\bfy))&=&0\\
+-2w_k+\Stwo_{ki}(\lambda_1\fxes{1}_{y_i}(\bfy)+\lambda_2\fxes{2}_{y_i}(\bfy))&=&0 
+\end{eqnarray*}
+con $k\neq 1,5$.Richiedere che i valori di $\bfy$ che soddisfano queste equazioni non cambino anche in presenza di bias $\Delta_{E_i}$ nelle energie dei jets significa trovare i valori
+di $\Delta\lambda_1$ e $\Delta\lambda_2$, che rappresentano la differenza fra i valori dei motliplicatori di Lagrange che si ottengono con e senza bias, tali che:
+\begin{eqnarray}
+\label{biaseq}
+-2\Delta_{E_1}+\Stwo_{11}(\Delta\lambda_1\fxes{1}_{E_1}(\bfy)                         +\Delta\lambda_2\fxes{2}_{E_1}(\bfy))&&\nonumber\\
++\Stwo_{15}(\Delta\lambda_1\fxes{1}_{E_2}(\bfy)              +\Delta\lambda_2\fxes{2}_{E_2}(\bfy))&=&0\nonumber\\
+-2\Delta_{E_2}+\Stwo_{51}(\Delta\lambda_1\fxes{1}_{E_1}(\bfy)                         +\Delta\lambda_2\fxes{2}_{E_1}(\bfy))&&\nonumber\\
++\Stwo_{55}(\Delta\lambda_1\fxes{1}_{E_2}(\bfy)              +\Delta\lambda_2\fxes{2}_{E_2}(\bfy))&=&0\nonumber\\
+\Stwo_{ki}\left(\Delta\lambda_1\fxes{1}_{y_i}(\bfy)               +\Delta\lambda_2\fxes{2}_{y_i}(\bfy)\right)&=&0.
+\end{eqnarray}
+Siccome vale la relazione:\[2E_{beam}\fxes{1}_{y_i}(\bfy)+\fxes{2}_{y_i}(\bfy)=4E_{beam}\delta_{i(1,5)}\]
+si ricava che le equazioni (\ref{biaseq}) in due incognite ($\Delta\lambda_1$,$\Delta\lambda_2$) hanno soluzione se:\[\frac{\Delta_{E_1}}{\Stwo_{11}+\Stwo_{15}}=\frac{\Delta_{E_2}}{\Stwo_{55}+\Stwo_{15}}\]
+che \`e la stessa relazione ottenuta con il calcolo al primo ordine.\\
+%
+\subsubsection{Parametrizzazione del gradiente della massa}
+%
+Uno degli ingredienti principali per valutare la dipendenza della massa dalle
+variabili cinematiche \`e l'espressione del gradiente della massa rispetto
+alle variabili cinematiche, includendo l'effetto del fit cinematico:
+\begin{equation}
+\label{obsgrad}
+\frac{\partial\Obs}{\partial x_j}=\sum_ig_{y_i}(0)\left(\delta_{ij}-\Stwo_{ik}\fxes{p}_{y_k}(0)\Minv_{pq}\fxes{q}_{y_j}(0)\right).
+\end{equation}
+Utilizzando le espressioni esplicite delle derivate delle funzioni dei vincoli
+e della osservabile massa rispetto alle variabili cinematiche dell'evento \`e possibile parametrizzare il gradiente in modo da rendere pi\`u chiara la
+dipendenza dalla cinematica dell'evento.\\
+Dalle relazioni (\ref{derrel2}), valide se $\Mhad=\Mlept$, si ricava
+\[\sum_{i=1}^{11}\sum_{k=1}^{11}g_{y_i}\Stwo_{ik}\fxes{q}_{y_k}=\frac{E_{beam}}{2M}\sum_{i=1}^{11}\sum_{k=1}^{11}\fxes{1}_{y_i}\Stwo_{ik}\fxes{q}_{y_k}-\frac{E_{beam}}{M}\sum_{i=1}^8\sum_{k=1}^{11}\betaw\cdot{\bf v}_i\Stwo_{ik}\fxes{q}_{y_k}.\]
+Inoltre, utilizzando la definizione (\ref{comderiv})
+\begin{eqnarray*}
+\sum_{i=1}^8\sum_{k=1}^{11}\betaw\cdot{\bf v}_i\Stwo_{ik}\fxes{1}_{y_k}&=&D-F\\
+\sum_{i=1}^8\sum_{k=1}^{11}\betaw\cdot{\bf v}_i\Stwo_{ik}\fxes{2}_{y_k}&=&2E_{beam}(D+F)
+\end{eqnarray*}
+con
+\begin{eqnarray*}
+D&=&\betaw\cdot\sum_{i=1}^8{\bf v}_i(\sigma_{iE_1}+\sigma_{iE_2})\\
+F&=&-\betaw\sum_{i=1}^8\sum_{k=1}^{11}{\bf v}_i\Stwo_{ik}h_{y_k}
+\end{eqnarray*}
+e utilizzando (\ref{paramdef}) si ottiene:
+\[g_{y_i}\Stwo_{ik}\fxes{p}_{y_k}\Minv_{pq}\fxes{q}_{y_j}=\frac{E_{beam}}{2M}\left[\fxes{1}_{y_j}-2\delta_{j(1,5)}\frac{DC+BF}{AC-B^2}+2h_{y_j}\frac{AF+BD}{AC-B^2}\right].\]
+Le componenti del gradiente (\ref{obsgrad}) diventano:
+\begin{eqnarray*}
+\frac{\partial\Obs}{\partial x_{(1,5)}}&=&-\frac{E_{beam}}{M}\betaw\cdot{\mbox{\boldmath $\beta$}_{(1,2)}}+\frac{E_{beam}}{M}\frac{DC+BF}{AC-B^2}+\frac{E_{beam}}{M}\frac{AF+BD}{AC-B^2}\betanu\cdot{\mbox{\boldmath $\beta$}_{(1,2)}}\\
+\frac{\partial\Obs}{\partial x_{j\le 8,\ne 1,5}}&=&-\frac{E_{beam}}{M}{\bf v}_j\cdot\betaw+\frac{E_{beam}}{M}\frac{AF+BD}{AC-B^2}{\bf v}_j\cdot\betanu\\
+\frac{\partial\Obs}{\partial x_{j\ge 9}}&=&-\frac{E_{beam}}{M}\frac{AF+BD}{AC-B^2}h_{y_j}
+\end{eqnarray*}
+
+{\em Quale \`e l'effetto della non linearit\`a di $w$}
+
+{\em Formule generali includendo il gradiente della massa e controllo delle ipotesi}
+
+{\em Confrontare effetto su massa dovuto a:
+\begin{itemize}
+\item scalibrazione due jets prima del fit cinematico
+\item scalibrazione di un solo jet
+\item scalibrazione di due jets con parametrizazione reale
+\end{itemize}}
+\subsubsection{Effetto vincolo su energia totale errato}
+{\em correlazione con risoluzione sulla massa}
+\subsubsection{Effetto bias su direzioni jets}
+
+{\em dipendenza dagli angoli di produzione e di decadimento}
+
+{\em migliorare la notazione per funzioni calcolate in 0}
+
+{\em Effetto vincoli sbagliati su calcolo derivate}
+
+{\em effetto non addittivita` delle variabili cinematiche}
+\end{document}
+%
